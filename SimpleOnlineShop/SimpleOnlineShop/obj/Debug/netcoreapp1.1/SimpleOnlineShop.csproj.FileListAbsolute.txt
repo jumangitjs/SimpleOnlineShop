@@ -1,0 +1,7 @@
+D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\bin\Debug\netcoreapp1.1\SimpleOnlineShop.deps.json
+D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.csprojResolveAssemblyReference.cache
+D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.AssemblyInfo.cs
+D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\bin\Debug\netcoreapp1.1\SimpleOnlineShop.dll
+D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\bin\Debug\netcoreapp1.1\SimpleOnlineShop.pdb
+D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.dll
+D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.pdb

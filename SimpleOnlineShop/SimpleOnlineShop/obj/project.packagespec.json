@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "D:\\123JURIELSKWELA\\OJT\\practice\\DDD\\SimpleOnlineShop\\SimpleOnlineShop\\SimpleOnlineShop.csproj",
+    "projectUniqueName": "D:\\Project\\SimpleOnlineShop\\SimpleOnlineShop\\SimpleOnlineShop\\SimpleOnlineShop.csproj",
     "projectName": "SimpleOnlineShop",
-    "projectPath": "D:\\123JURIELSKWELA\\OJT\\practice\\DDD\\SimpleOnlineShop\\SimpleOnlineShop\\SimpleOnlineShop.csproj",
-    "outputPath": "D:\\123JURIELSKWELA\\OJT\\practice\\DDD\\SimpleOnlineShop\\SimpleOnlineShop\\obj\\",
+    "projectPath": "D:\\Project\\SimpleOnlineShop\\SimpleOnlineShop\\SimpleOnlineShop\\SimpleOnlineShop.csproj",
+    "outputPath": "D:\\Project\\SimpleOnlineShop\\SimpleOnlineShop\\SimpleOnlineShop\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp1.1"

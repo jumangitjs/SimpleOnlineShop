@@ -29,11 +29,11 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
         public virtual string Email { get; protected set; }
         public virtual string ContactNo { get; protected set; }
 
-        public virtual List<Product> Cart { get; protected set; }
+        public virtual List<Product> Products { get; protected set; }
 
         public virtual void AddToCart(Product product)
         {
-            Cart.Add(product);
+            Products.Add(product);
         }
 
         public virtual void ChangeEmail(string newEmail)

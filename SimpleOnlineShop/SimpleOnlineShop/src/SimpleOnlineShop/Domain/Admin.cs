@@ -2,7 +2,7 @@
 {
     public class Admin : IAgreggateRoot
     {
-
+        //do this later :D
         public static Admin Create(string firstName, string lastName, string address, string email, string contactNo, string employeeId)
         {
             return new Admin
@@ -12,7 +12,7 @@
                 Address = address,
                 Email = email,
                 ContactNo = contactNo,
-                EmployeeId = employeeId;
+                EmployeeId = employeeId
             };
         }
 

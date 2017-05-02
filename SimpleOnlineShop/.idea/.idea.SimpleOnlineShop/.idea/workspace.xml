@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2dace6a5-8df3-4e16-ade2-05d4b85e691a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/ICustomerService.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/IData.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/IService.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/CustomerData.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/InventoryData.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/ProductData.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/bin/Debug/netcoreapp1.1/SimpleOnlineShop.dll" afterPath="$PROJECT_DIR$/SimpleOnlineShop/bin/Debug/netcoreapp1.1/SimpleOnlineShop.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/bin/Debug/netcoreapp1.1/SimpleOnlineShop.pdb" afterPath="$PROJECT_DIR$/SimpleOnlineShop/bin/Debug/netcoreapp1.1/SimpleOnlineShop.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/CoreCompileInputs.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/SimpleOnlineShop.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/SimpleOnlineShop.csprojResolveAssemblyReference.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/SimpleOnlineShop.dll" afterPath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/SimpleOnlineShop.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/SimpleOnlineShop.pdb" afterPath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/SimpleOnlineShop.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/SimpleOnlineShop.csproj" afterPath="$PROJECT_DIR$/SimpleOnlineShop/SimpleOnlineShop.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/bin/Debug/netcoreapp1.1/SimpleOnlineShop.deps.json" afterPath="$PROJECT_DIR$/SimpleOnlineShop/bin/Debug/netcoreapp1.1/SimpleOnlineShop.deps.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/SimpleOnlineShop.csproj.FileListAbsolute.txt" afterPath="$PROJECT_DIR$/SimpleOnlineShop/obj/Debug/netcoreapp1.1/SimpleOnlineShop.csproj.FileListAbsolute.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/obj/SimpleOnlineShop.csproj.nuget.g.props" afterPath="$PROJECT_DIR$/SimpleOnlineShop/obj/SimpleOnlineShop.csproj.nuget.g.props" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/obj/project.assets.json" afterPath="$PROJECT_DIR$/SimpleOnlineShop/obj/project.assets.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/obj/project.packagespec.json" afterPath="$PROJECT_DIR$/SimpleOnlineShop/obj/project.packagespec.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Admin.cs" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Admin.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Customer/Customer.cs" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Customer/Customer.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Infrastructure/CustomerRepository.cs" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Infrastructure/CustomerRepository.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Infrastructure/UnitOfWork.cs" afterPath="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Infrastructure/UnitOfWork.cs" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <splitter split-orientation="vertical" split-proportion="0.7688243">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="ProductData.cs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/ProductData.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+                  <folding>
+                    <marker date="1493717860402" expanded="true" signature="63:282" ph="{...}" />
+                    <marker date="1493717860402" expanded="true" signature="94:280" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InventoryData.cs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/InventoryData.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+                  <folding>
+                    <marker date="1493719346085" expanded="true" signature="6:59" ph="..." />
+                    <marker date="1493719346085" expanded="true" signature="124:335" ph="{...}" />
+                    <marker date="1493719346085" expanded="true" signature="157:333" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IInventoryRepository.cs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Inventory/IInventoryRepository.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding>
+                    <marker date="1493689001953" expanded="true" signature="60:186" ph="{...}" />
+                    <marker date="1493689001953" expanded="true" signature="129:184" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Inventory.cs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Inventory/Inventory.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="98">
+                  <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+                  <folding>
+                    <marker date="1493689001959" expanded="true" signature="95:715" ph="{...}" />
+                    <marker date="1493689001959" expanded="true" signature="141:713" ph="{...}" />
+                    <marker date="1493689001959" expanded="true" signature="372:427" ph="{...}" />
+                    <marker date="1493689001959" expanded="true" signature="487:545" ph="{...}" />
+                    <marker date="1493689001959" expanded="true" signature="614:706" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Product.cs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Inventory/Product.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="8" column="18" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="8" selection-end-column="18" />
+                  <folding>
+                    <marker date="1493689001963" expanded="true" signature="60:815" ph="{...}" />
+                    <marker date="1493689001963" expanded="true" signature="97:813" ph="{...}" />
+                    <marker date="1493689001963" expanded="true" signature="216:470" ph="{...}" />
+                    <marker date="1493689001963" expanded="true" signature="270:459" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Infrastructure/CustomerRepository.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/IData.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/ICustomerService.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/ICustomerService.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/IService.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/CustomerData.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/CustomerData.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Customer/Customer.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Infrastructure/UnitOfWork.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Admin.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/ProductData.cs" />
+        <option value="$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/InventoryData.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="814" />
+    <option name="height" value="867" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Domain" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Domain" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inventory" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DTO" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleOnlineShop" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="SearchEverywhereHistoryKey" value="git&#9;ACTION&#9;Github.Open.In.Browser" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected=".NET Project.Default">
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2dace6a5-8df3-4e16-ade2-05d4b85e691a" name="Default" comment="" />
+      <created>1493692954150</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1493692954150</updated>
+      <workItem from="1493692956174" duration="5267000" />
+      <workItem from="1493708661082" duration="5506000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="10773000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="0" width="814" height="867" extended-state="0" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28137386" sideWeight="0.5025" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Change Signature" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24937344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.4975" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Customer/Gender.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/ICustomerService.cs" />
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Infrastructure/UnitOfWork.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-493">
+          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding>
+            <marker date="1493717075089" expanded="true" signature="6:199" ph="..." />
+            <marker date="1493717075089" expanded="true" signature="259:2892" ph="{...}" />
+            <marker date="1493717075089" expanded="true" signature="314:2890" ph="{...}" />
+            <marker date="1493717075089" expanded="true" signature="520:745" ph="{...}" />
+            <marker date="1493717075089" expanded="true" signature="821:2732" ph="{...}" />
+            <marker date="1493717075089" expanded="true" signature="885:1697" ph="{...}" />
+            <marker date="1493717075089" expanded="true" signature="1756:2109" ph="{...}" />
+            <marker date="1493717075089" expanded="true" signature="2164:2720" ph="{...}" />
+            <marker date="1493717075089" expanded="true" signature="2762:2809" ph="{...}" />
+            <marker date="1493717075089" expanded="true" signature="2841:2884" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Infrastructure/CustomerRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <marker date="1493706114423" expanded="false" signature="6:146" ph="..." />
+            <marker date="1493706114423" expanded="true" signature="206:1393" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="266:1391" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="394:467" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="510:588" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="636:720" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="765:842" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="890:970" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="1018:1116" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="1157:1240" ph="{...}" />
+            <marker date="1493706114423" expanded="true" signature="1289:1384" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/IUnitOfWork.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1493689001948" expanded="true" signature="65:176" ph="{...}" />
+            <marker date="1493689001948" expanded="true" signature="114:174" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/IRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1493689001941" expanded="true" signature="85:430" ph="{...}" />
+            <marker date="1493689001941" expanded="true" signature="174:428" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Customer/Customer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <marker date="1493716632177" expanded="false" signature="6:91" ph="..." />
+            <marker date="1493716632177" expanded="true" signature="152:1525" ph="{...}" />
+            <marker date="1493716632177" expanded="true" signature="197:1523" ph="{...}" />
+            <marker date="1493716632177" expanded="true" signature="339:633" ph="{...}" />
+            <marker date="1493716632177" expanded="true" signature="394:622" ph="{...}" />
+            <marker date="1493716632177" expanded="true" signature="1236:1291" ph="{...}" />
+            <marker date="1493716632177" expanded="true" signature="1349:1399" ph="{...}" />
+            <marker date="1493716632177" expanded="true" signature="1462:1517" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/IEntity.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="15" />
+          <folding>
+            <marker date="1493689001935" expanded="true" signature="104:181" ph="{...}" />
+            <marker date="1493689001935" expanded="true" signature="135:179" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/ICustomerService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1493708585348" expanded="true" signature="113:190" ph="{...}" />
+            <marker date="1493708585348" expanded="true" signature="175:188" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/IData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <marker date="1493708490401" expanded="true" signature="55:148" ph="{...}" />
+            <marker date="1493708490401" expanded="true" signature="89:146" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/IService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <marker date="1493708618590" expanded="true" signature="55:104" ph="{...}" />
+            <marker date="1493708618590" expanded="true" signature="89:102" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Inventory/Inventory.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <marker date="1493689001959" expanded="true" signature="95:715" ph="{...}" />
+            <marker date="1493689001959" expanded="true" signature="141:713" ph="{...}" />
+            <marker date="1493689001959" expanded="true" signature="372:427" ph="{...}" />
+            <marker date="1493689001959" expanded="true" signature="487:545" ph="{...}" />
+            <marker date="1493689001959" expanded="true" signature="614:706" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Admin.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+          <folding>
+            <marker date="1493717310435" expanded="true" signature="50:1274" ph="{...}" />
+            <marker date="1493717310435" expanded="true" signature="92:1272" ph="{...}" />
+            <marker date="1493717310435" expanded="true" signature="262:561" ph="{...}" />
+            <marker date="1493717310435" expanded="true" signature="314:550" ph="{...}" />
+            <marker date="1493717310435" expanded="true" signature="1098:1148" ph="{...}" />
+            <marker date="1493717310435" expanded="true" signature="1211:1266" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/CustomerData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1493715993151" expanded="true" signature="63:416" ph="{...}" />
+            <marker date="1493715993151" expanded="true" signature="95:414" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/ProductData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding>
+            <marker date="1493717860402" expanded="true" signature="63:282" ph="{...}" />
+            <marker date="1493717860402" expanded="true" signature="94:280" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Inventory/Product.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <marker date="1493689001963" expanded="true" signature="60:815" ph="{...}" />
+            <marker date="1493689001963" expanded="true" signature="97:813" ph="{...}" />
+            <marker date="1493689001963" expanded="true" signature="216:470" ph="{...}" />
+            <marker date="1493689001963" expanded="true" signature="270:459" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Application/Web/DTO/InventoryData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <marker date="1493719346085" expanded="true" signature="6:59" ph="..." />
+            <marker date="1493719346085" expanded="true" signature="124:335" ph="{...}" />
+            <marker date="1493719346085" expanded="true" signature="157:333" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleOnlineShop/src/SimpleOnlineShop/Domain/Inventory/IInventoryRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1493689001953" expanded="true" signature="60:186" ph="{...}" />
+            <marker date="1493689001953" expanded="true" signature="129:184" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

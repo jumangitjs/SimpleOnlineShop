@@ -47,7 +47,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 
         public Customer FindByName(string name)
         {
-            return CustomerUnitOfWork.Customers.First(p => p.Name == name);
+            return CustomerUnitOfWork.Customers.Last(p => p.Name == name);
         }
 
     }

@@ -5,3 +5,10 @@ D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\bin\Debug\
 D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\bin\Debug\netcoreapp1.1\SimpleOnlineShop.pdb
 D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.dll
 D:\123JURIELSKWELA\OJT\practice\DDD\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.pdb
+D:\Project\SimpleOnlineShop\SimpleOnlineShop\SimpleOnlineShop\bin\Debug\netcoreapp1.1\SimpleOnlineShop.deps.json
+D:\Project\SimpleOnlineShop\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.csprojResolveAssemblyReference.cache
+D:\Project\SimpleOnlineShop\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.AssemblyInfo.cs
+D:\Project\SimpleOnlineShop\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.dll
+D:\Project\SimpleOnlineShop\SimpleOnlineShop\SimpleOnlineShop\obj\Debug\netcoreapp1.1\SimpleOnlineShop.pdb
+D:\Project\SimpleOnlineShop\SimpleOnlineShop\SimpleOnlineShop\bin\Debug\netcoreapp1.1\SimpleOnlineShop.dll
+D:\Project\SimpleOnlineShop\SimpleOnlineShop\SimpleOnlineShop\bin\Debug\netcoreapp1.1\SimpleOnlineShop.pdb

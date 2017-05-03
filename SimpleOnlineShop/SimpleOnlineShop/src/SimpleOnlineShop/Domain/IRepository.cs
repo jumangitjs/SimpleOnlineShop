@@ -5,6 +5,8 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain
     public interface IRepository<TAggregate>
         where TAggregate : IAgreggateRoot
     {
+        IUnitOfWork UnitOfWork { get; }
+
         TAggregate FindById(long id);
         IEnumerable<TAggregate> FindAll();
         void Add(TAggregate aggregate);

@@ -1,7 +1,7 @@
 ﻿namespace SimpleOnlineShop.SimpleOnlineShop.Application
 {
-    interface IData<in TEntity>
+    public interface IData
     {
-        IData<TEntity> Fill(TEntity entity);
+        long Id { get; set; }
     }
 }

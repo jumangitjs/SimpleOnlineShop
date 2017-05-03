@@ -3,9 +3,14 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\tests" />
+    <Compile Remove="src\SimpleOnlineShop\Infrastructure\CrossCutting\AutoMapper\Extensio\**" />
+    <EmbeddedResource Remove="src\SimpleOnlineShop\Infrastructure\CrossCutting\AutoMapper\Extensio\**" />
+    <None Remove="src\SimpleOnlineShop\Infrastructure\CrossCutting\AutoMapper\Extensio\**" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AutoMapper">
+      <Version>6.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore">
       <Version>1.1.1</Version>
     </PackageReference>
@@ -18,5 +23,8 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design">
       <Version>1.1.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SimpleOnlineShop\Infrastructure\CrossCutting\AutoMapper\" />
   </ItemGroup>
 </Project>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO
 {
-    public class InventoryData
+    public class InventoryData : IData
     {
-        public string Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public IList<ProductData> Products { get; set; } = new List<ProductData>();
     }

@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager">
+    <content url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.reporters.netstandard15.dll">
+      <sourceFolder url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.reporters.netstandard15.dll" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.utility.netstandard15.dll">
+      <sourceFolder url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.utility.netstandard15.dll" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll">
+      <sourceFolder url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/../..">
       <sourceFolder url="file://$MODULE_DIR$/../../SimpleOnlineShop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../SimpleOnlineShop.test" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../../SimpleOnlineShop.test/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../SimpleOnlineShop.test/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../SimpleOnlineShop/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../SimpleOnlineShop/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../packages" />

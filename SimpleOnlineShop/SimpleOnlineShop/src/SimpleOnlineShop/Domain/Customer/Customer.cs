@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 {
     public class Customer : IAgreggateRoot
     {
-        public static Customer Create(string address, string email, string contactNo, string firstName, string lastName, Gender gender)
+        public static Customer Create(string firstName, string lastName, Gender gender, string address, string email, string contactNo)
         {
             return new Customer
             {
+                FirstName = firstName,
+                LastName = lastName,
                 Address = address,
                 Email = email,
                 ContactNo = contactNo,
-                FirstName = firstName,
-                LastName = lastName,
                 Gender = gender
             };
         }
@@ -29,11 +30,19 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
         public virtual string Email { get; protected set; }
         public virtual string ContactNo { get; protected set; }
 
-        public virtual List<Product> Products { get; protected set; }
+        public virtual IList<Product> Products { get; protected set; } = new List<Product>();
 
-        public virtual void AddToCart(Product product)
+        public virtual Product AddToCart(Product product)
         {
             Products.Add(product);
+            return product;
+        }
+
+        public virtual double CheckOut()
+        {
+            var totalCost = Products.Sum(product => product.Price);
+            Products.Clear();
+            return totalCost;
         }
 
         public virtual void ChangeEmail(string newEmail)

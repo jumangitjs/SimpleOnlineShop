@@ -1,9 +1,10 @@
-﻿using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
-
-namespace SimpleOnlineShop.SimpleOnlineShop.Application
+﻿namespace SimpleOnlineShop.SimpleOnlineShop.Application
 {
-    interface ICustomerService<TEntity> : IService<TEntity>
+    public interface ICustomerService : IService
     {
-
+        IData AddToCart(long id, IData product);
+        void CreateCustomer(IData customerData);
+        void ChangeEmail(long id, string email);
+        void ChangeContactNo(long id, string number);
     }
 }

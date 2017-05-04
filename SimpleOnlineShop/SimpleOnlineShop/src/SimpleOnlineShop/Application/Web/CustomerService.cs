@@ -27,23 +27,13 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
             return _customerRepository.FindAll().AsEnumerable<CustomerData>();
         }
 
+
         public IData AddToCart(long id, IData productData)
         {
-            var productDTO = productData as ProductData;
-            var product = _customerRepository.FindById(id).AddToCart(
-                Product.Create(
-                    productDTO.ItemId,
-                    productDTO.Name,
-                    productDTO.Description,
-                    productDTO.Price,
-                    productDTO.Quantity
-                    ));
-            _customerRepository.UnitOfWork.Commit();
-
-            return product.AsData<ProductData>();
+            return null; //_customerRepository.FindById(id).AddToCart();
         }
 
-        public void CreateCustomer(IData customerData)
+        public Customer CreateCustomer(IData customerData)
         {
             var customerDTO = customerData as CustomerData;
             var gender = (Gender) Enum.Parse(typeof(Gender), customerDTO.Gender);
@@ -58,7 +48,8 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
 
             _customerRepository.Add(customer);
             _customerRepository.UnitOfWork.Commit();
-            
+
+            return customer;
         }
 
         public void ChangeEmail(long id, string email)
@@ -70,6 +61,12 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
         public void ChangeContactNo(long id, string number)
         {
             _customerRepository.FindById(id).ChangeContactNo(number);
+            _customerRepository.UnitOfWork.Commit();
+        }
+
+        public void DeleteCustomer(long id)
+        {
+            _customerRepository.RemoveById(id);
             _customerRepository.UnitOfWork.Commit();
         }
     }

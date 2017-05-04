@@ -38,7 +38,7 @@ namespace SimpleOnlineShop.WebApi
 
             //repositories
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<IInventoryRepository, IInventoryRepository>();
+//            services.AddScoped<IInventoryRepository, IInventoryRepository>();
 
             //web app services
             services.AddScoped<ICustomerService, CustomerService>();

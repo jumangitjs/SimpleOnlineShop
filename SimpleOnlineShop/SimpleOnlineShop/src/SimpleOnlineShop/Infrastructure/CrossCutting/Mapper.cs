@@ -6,15 +6,19 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting
 {
     public class Mapper : IMapper
     {
+
         public TDestination Map<TSource, TDestination>(TSource source)
         {
             return MapTo<TDestination>(source);
         }
 
+
         public TDestination MapTo<TDestination>(object source)
         {
-            return Map(source).To<TDestination>();
+            return Map(source)
+                .To<TDestination>();
         }
+
 
         public IMapBuilder Map(object source)
         {
@@ -24,6 +28,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting
         internal class MapBuilder : IMapBuilder
         {
             private readonly List<object> _sources = new List<object>();
+
 
             public MapBuilder(object source)
             {
@@ -42,10 +47,23 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting
                 return destination;
             }
 
+
+            public TDestination To<TDestination>()
+            {
+                return _sources.Aggregate(default(TDestination), (destination, source) => Map(source, destination));
+            }
+
+            public object ToType(Type destinationType)
+            {
+                return _sources.Aggregate<object, object>(null,
+                    (destination, source) => Map(source, destination, destinationType));
+            }
+
             private static TDestination Map<TDestination>(object source, TDestination destination)
             {
-                return destination != null
-                    ? (TDestination) global::AutoMapper.Mapper.Map(source, destination, source.GetType(), typeof(TDestination))
+               return destination != null
+                    ? (TDestination) global::AutoMapper.Mapper.Map(source, destination, source.GetType(),
+                        typeof(TDestination))
                     : global::AutoMapper.Mapper.Map<TDestination>(source);
             }
 
@@ -55,16 +73,6 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting
                     ? global::AutoMapper.Mapper.Map(source, destination, source.GetType(), destinationType)
                     : global::AutoMapper.Mapper.Map(source, source.GetType(), destinationType);
             }
-
-            public object ToType(Type destinationType)
-            {
-                return _sources.Aggregate<object, object>(null, (destination, source) => Map(source, destination, destinationType));
-            }
-
-            public TDestination To<TDestination>()
-            {
-                return _sources.Aggregate(default(TDestination), (destination, source) => Map(source, destination));
-            }
         }
     }
-}
+    }

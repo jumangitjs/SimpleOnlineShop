@@ -6,6 +6,11 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 {
     public class Customer : IAgreggateRoot
     {
+        public Customer()
+        {
+            
+        }
+
         public static Customer Create(string firstName, string lastName, Gender gender, string address, string email, string contactNo)
         {
             return new Customer
@@ -23,25 +28,27 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 
         public virtual string FirstName { get; private set; }
         public virtual string LastName { get; private set; }
+
         public virtual string Name => $"{LastName}, {FirstName}";
+
         public virtual Gender Gender { get; protected set; }
 
         public virtual string Address { get; protected set; }
         public virtual string Email { get; protected set; }
         public virtual string ContactNo { get; protected set; }
 
-        public virtual IList<Product> Products { get; protected set; } = new List<Product>();
+        public virtual IList<Product> Cart { get; protected set; } = new List<Product>();
 
         public virtual Product AddToCart(Product product)
         {
-            Products.Add(product);
+            Cart.Add(product);
             return product;
         }
 
         public virtual double CheckOut()
         {
-            var totalCost = Products.Sum(product => product.Price);
-            Products.Clear();
+            var totalCost = Cart.Sum(product => product.Price);
+            Cart.Clear();
             return totalCost;
         }
 

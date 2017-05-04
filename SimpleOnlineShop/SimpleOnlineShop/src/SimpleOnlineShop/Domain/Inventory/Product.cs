@@ -21,6 +21,6 @@
         public virtual string Name { get; protected set; }
         public virtual string Description { get; protected set; }
         public virtual double Price { get; protected set; }
-        public virtual int Quantity { get; protected set; }
+        public virtual int Quantity { get; protected internal set; }
     }
 }

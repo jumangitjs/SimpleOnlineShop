@@ -21,11 +21,18 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 
         public Customer FindById(long id)
         {
+//            return _customerUnitOfWork.Customers
+//                .Include(p => p.Products)
+//                .FirstOrDefault(c => c.Id == id);
             return _customerUnitOfWork.Customers.Find(id);
+
         }
 
         public IEnumerable<Customer> FindAll()
         {
+//            return _customerUnitOfWork.Customers
+//                .Include(p => p.Products)
+//                .AsEnumerable();
             return _customerUnitOfWork.Customers.AsEnumerable();
         }
 

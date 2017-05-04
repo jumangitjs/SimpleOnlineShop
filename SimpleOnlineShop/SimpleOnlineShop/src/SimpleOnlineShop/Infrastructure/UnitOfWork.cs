@@ -8,7 +8,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
     public class UnitOfWork : DbContext, IUnitOfWork
     {
         public DbSet<Customer> Customers { get; set; }
-        //public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,34 +33,34 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
                 customer.Property(c => c.Address).HasColumnName("address");
                 customer.Property(c => c.Email).HasColumnName("email");
                 customer.Property(c => c.ContactNo).HasColumnName("contact_no");
-//                customer.HasMany(c => c.Products).WithOne().HasForeignKey("products_id");
+                customer.HasMany(c => c.Products).WithOne().HasForeignKey("products_id");
 
                 customer.ToTable("customer");
             });
 
-//            modelBuilder.Entity<Inventory>(inventory =>
-//            {
-//                inventory.Property(i => i.Id).HasColumnName("id");
-//                inventory.HasKey(i => i.Id);
-//                inventory.Property(i => i.Name).HasColumnName("name");
-//
-//                inventory.HasMany(i => i.Products).WithOne().HasForeignKey("inventory_id");
-//
-//                inventory.ToTable("inventory");
-//            });
-//
-//            modelBuilder.Entity<Product>(product =>
-//            {
-//                product.Property(p => p.Id).HasColumnName("id");
-//                product.HasKey(p => p.Id);
-//                product.Property(p => p.Name).HasColumnName("name");
-//                product.Property(p => p.Description).HasColumnName("description");
-//                product.Property(p => p.ItemId).HasColumnName("item_id");
-//                product.Property(p => p.Price).HasColumnName("price");
-//                product.Property(p => p.Quantity).HasColumnName("quantity");
-//
-//                product.ToTable("product");
-//            });
+            modelBuilder.Entity<Inventory>(inventory =>
+            {
+                inventory.Property(i => i.Id).HasColumnName("id");
+                inventory.HasKey(i => i.Id);
+                inventory.Property(i => i.Name).HasColumnName("name");
+
+                inventory.HasMany(i => i.Products).WithOne().HasForeignKey("inventory_id");
+
+                inventory.ToTable("inventory");
+            });
+
+            modelBuilder.Entity<Product>(product =>
+            {
+                product.Property(p => p.Id).HasColumnName("id");
+                product.HasKey(p => p.Id);
+                product.Property(p => p.Name).HasColumnName("name");
+                product.Property(p => p.Description).HasColumnName("description");
+                product.Property(p => p.ItemId).HasColumnName("item_id");
+                product.Property(p => p.Price).HasColumnName("price");
+                product.Property(p => p.Quantity).HasColumnName("quantity");
+
+                product.ToTable("product");
+            });
         }
 
         public void Commit()

@@ -1,6 +1,7 @@
 ﻿using SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extension;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapper.Profile
 {
@@ -18,15 +19,20 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapp
             mapper.ForMember(dto => dto.Address, mc => mc.MapFrom(e => e.Address));
             mapper.ForMember(dto => dto.Email, mc => mc.MapFrom(e => e.Email));
             mapper.ForMember(dto => dto.ContactNo, mc => mc.MapFrom(e => e.ContactNo));
+            mapper.ForMember(dto => dto.Orders, mc => mc.MapFrom(e => e.Orders.AsEnumerable<OrderData>()));
 
-//            var productMapper = CreateMap<Product, ProductData>();
-//
-//            productMapper.ForMember(dto => dto.Name, mc => mc.MapFrom(e => e.Name));
-//            productMapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
-//            productMapper.ForMember(dto => dto.ItemId, mc => mc.MapFrom(e => e.ItemId));
-//            productMapper.ForMember(dto => dto.Description, mc => mc.MapFrom(e => e.Description));
-//            productMapper.ForMember(dto => dto.Price, mc => mc.MapFrom(e => e.Price));
-//            productMapper.ForMember(dto => dto.Quantity, mc => mc.MapFrom(e => e.Quantity));
+            var orderMapper = CreateMap<Order, OrderData>();
+
+            orderMapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
+            orderMapper.ForMember(dto => dto.OrderDate, mc => mc.MapFrom(e => e.OrderDate));
+            orderMapper.ForMember(dto => dto.Products, mc => mc.MapFrom(e => e.Products.AsEnumerable<ProductData>()));
+
+            var productMapper = CreateMap<Product, ProductData>();
+
+            productMapper.ForMember(dto => dto.Name, mc => mc.MapFrom(e => e.Name));
+            productMapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
+            productMapper.ForMember(dto => dto.Description, mc => mc.MapFrom(e => e.Description));
+            productMapper.ForMember(dto => dto.Price, mc => mc.MapFrom(e => e.Price));
         }
     }
 

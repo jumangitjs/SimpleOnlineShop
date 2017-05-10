@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NpgsqlTypes;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+﻿using System.Collections.Generic;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 {
@@ -38,40 +34,9 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
         public virtual string Address { get; protected set; }
         public virtual string Email { get; protected set; }
         public virtual string ContactNo { get; protected set; }
+    
 
-        private IInventoryRepository inventoryRepository;
-
-        public virtual IList<Product> Products { get; protected set; } = new List<Product>();
-
-        public virtual void AddToCart(Product product)
-        {
-            try
-            {
-                Products.Add(inventoryRepository
-                    .FindByName("products")
-                    .Products
-                    .Find(p => p.Name == product.Name));
-            }
-            catch (Exception e)
-            {
-                throw new ArgumentException(e.Message);
-            }
-        }
-
-        public virtual double CheckOut()
-        {
-            var totalCost = Products.Sum(product => product.Price);
-            foreach (var product in Products)
-            {
-                inventoryRepository
-                    .FindByName("products")
-                    .Products
-                    .Find(p => p.Id == product.Id)
-                    .Quantity--;
-            }
-            Products.Clear();
-            return totalCost;
-        }
+        public virtual IList<Order> Orders { get; protected set; } = new List<Order>();
 
         public virtual void ChangeEmail(string newEmail)
         {

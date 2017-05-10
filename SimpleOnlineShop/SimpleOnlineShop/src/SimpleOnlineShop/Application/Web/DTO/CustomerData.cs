@@ -1,4 +1,7 @@
-﻿namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO
+﻿using System.Collections.Generic;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
+
+namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO
 {
     public class CustomerData : IData
     {
@@ -10,5 +13,6 @@
         public string Address { get; set; }
         public string Email { get; set; }
         public string ContactNo { get; set; }
+        public List<Order> Orders { get; set; } = new List<Order>();
     }
 }

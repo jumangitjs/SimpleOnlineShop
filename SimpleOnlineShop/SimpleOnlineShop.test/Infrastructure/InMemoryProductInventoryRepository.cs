@@ -7,11 +7,11 @@ using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
 
 namespace SimpleOnlineShop.test.Infrastructure
 {
-    public class InMemoryInventoryRepository : IInventoryRepository
+    public class InMemoryProductInventoryRepository : IProductInventoryRepository
     {
         private readonly InMemoryUnitOfWork _unitOfWork;
 
-        public InMemoryInventoryRepository(InMemoryUnitOfWork unitOfWork)
+        public InMemoryProductInventoryRepository(InMemoryUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -19,27 +19,27 @@ namespace SimpleOnlineShop.test.Infrastructure
 
         public IUnitOfWork UnitOfWork => _unitOfWork;
 
-        public Inventory FindById(long id)
+        public ProductInventoryList FindById(long id)
         {
             return _unitOfWork.Inventories.Find(id);
         }
 
-        public IEnumerable<Inventory> FindAll()
+        public IEnumerable<ProductInventoryList> FindAll()
         {
             return _unitOfWork.Inventories.ToList();
         }
 
-        public void Add(Inventory aggregate)
+        public void Add(ProductInventoryList aggregate)
         {
             _unitOfWork.Inventories.Add(aggregate);
         }
 
-        public void Remove(Inventory aggregate)
+        public void Remove(ProductInventoryList aggregate)
         {
             _unitOfWork.Inventories.Remove(aggregate);
         }
 
-        public void Modify(Inventory aggregate)
+        public void Modify(ProductInventoryList aggregate)
         {
             _unitOfWork.Entry(aggregate).State = EntityState.Modified;
         }
@@ -49,7 +49,7 @@ namespace SimpleOnlineShop.test.Infrastructure
             _unitOfWork.Inventories.Remove(FindById(id));
         }
 
-        public Inventory FindByName(string name)
+        public ProductInventoryList FindByName(string name)
         {
             return _unitOfWork.Inventories.Last(i => i.Name == name);
         }

@@ -9,7 +9,7 @@ namespace SimpleOnlineShop.test.Infrastructure
     {
 
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<ProductInventoryList> Inventories { get; set; }
         public DbSet<Product> Products { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -2,25 +2,27 @@
 {
     public class Product : IEntity
     {
-        public static Product Create(string itemId, string name, string description, double price, int quantity)
+
+        public Product()
+        {
+            
+        }
+
+        public static Product Create(string name, string description, double price)
         {
             return new Product
             {
-                ItemId = itemId,
                 Name = name,
                 Description = description,
-                Price = price,
-                Quantity = quantity,
-
+                Price = price
             };
         }
 
         public long Id { get; set; }
 
-        public string ItemId { get; protected set; }
         public virtual string Name { get; protected set; }
         public virtual string Description { get; protected set; }
         public virtual double Price { get; protected set; }
-        public virtual int Quantity { get; protected internal set; }
+
     }
 }

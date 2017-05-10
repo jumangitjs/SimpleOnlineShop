@@ -1,5 +1,6 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO
 {
@@ -7,6 +8,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public IList<ProductData> Products { get; set; } = new List<ProductData>();
+        public string Description { get; set; }
+        public IList<InventoryProduct> InventoryProducts { get; set; } = new List<InventoryProduct>();
     }
 }

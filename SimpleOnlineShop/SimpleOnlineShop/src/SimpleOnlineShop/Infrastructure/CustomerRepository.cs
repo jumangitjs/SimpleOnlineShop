@@ -3,7 +3,6 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SimpleOnlineShop.SimpleOnlineShop.Domain;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 {
@@ -21,19 +20,17 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 
         public Customer FindById(long id)
         {
-//            return _customerUnitOfWork.Customers
-//                .Include(p => p.Products)
-//                .FirstOrDefault(c => c.Id == id);
-            return _customerUnitOfWork.Customers.Find(id);
+            return _customerUnitOfWork.Customers
+                .Include(p => p.Orders).AsEnumerable()
+                .FirstOrDefault(c => c.Id == id);
 
         }
 
         public IEnumerable<Customer> FindAll()
         {
-//            return _customerUnitOfWork.Customers
-//                .Include(p => p.Products)
-//                .AsEnumerable();
-            return _customerUnitOfWork.Customers.AsEnumerable();
+            return _customerUnitOfWork.Customers
+                .Include(p => p.Orders)
+                .AsEnumerable();
         }
 
         public void Add(Customer aggregate)

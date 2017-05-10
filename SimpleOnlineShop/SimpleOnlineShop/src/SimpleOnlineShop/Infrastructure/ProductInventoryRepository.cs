@@ -6,43 +6,47 @@ using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 {
-    public class InventoryRepository : IInventoryRepository
+    public class ProductInventoryRepository : IProductInventoryRepository
     {
 
         private readonly UnitOfWork _unitOfWork;
 
-        public InventoryRepository(UnitOfWork unitOfWork)
+        public ProductInventoryRepository(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
+        public ProductInventoryRepository()
+        {
+        }
+
         public IUnitOfWork UnitOfWork => _unitOfWork;
 
-        public Inventory FindById(long id)
+        public ProductInventoryList FindById(long id)
         {
             return _unitOfWork.Inventories
-                .Include(p => p.Products)
+                .Include(p => p.InventoryProducts)
                 .FirstOrDefault(i => i.Id == id);
         }
 
-        public IEnumerable<Inventory> FindAll()
+        public IEnumerable<ProductInventoryList> FindAll()
         {
             return _unitOfWork.Inventories
-                .Include(p => p.Products)
+                .Include(p => p.InventoryProducts)
                 .AsEnumerable();
         }
 
-        public void Add(Inventory aggregate)
+        public void Add(ProductInventoryList aggregate)
         {
             _unitOfWork.Inventories.Add(aggregate);
         }
 
-        public void Remove(Inventory aggregate)
+        public void Remove(ProductInventoryList aggregate)
         {
             _unitOfWork.Inventories.Remove(aggregate);
         }
 
-        public void Modify(Inventory aggregate)
+        public void Modify(ProductInventoryList aggregate)
         {
             _unitOfWork.Entry(aggregate).State = EntityState.Modified;
         }
@@ -52,7 +56,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
             Remove(FindById(id));
         }
 
-        public Inventory FindByName(string name)
+        public ProductInventoryList FindByName(string name)
         {
            return _unitOfWork.Inventories.FirstOrDefault(i => i.Name == name);
         }

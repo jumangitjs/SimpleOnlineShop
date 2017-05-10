@@ -15,7 +15,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extensio
             global::AutoMapper.Mapper.Initialize(cfg =>
             {
                 cfg.AddProfile<CustomerWebProfile>();
-                //cfg.AddProfile<InventoryWebProfile>();
+                cfg.AddProfile<InventoryWebProfile>();
             });
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,11 +34,11 @@ namespace SimpleOnlineShop.WebApi
 
             //repositories
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-//            services.AddScoped<IInventoryRepository, IInventoryRepository>();
+            services.AddScoped<IProductInventoryRepository, ProductInventoryRepository>();
 
             //web app services
             services.AddScoped<ICustomerService, CustomerService>();
-//            services.AddScoped<IInventory>()
+            services.AddScoped<IInventoryService, InventoryService>();
             services.AddMvc();
         }
 

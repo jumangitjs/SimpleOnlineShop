@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
@@ -27,10 +28,40 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
             return _customerRepository.FindAll().AsEnumerable<CustomerData>();
         }
 
-
-        public IData AddToCart(long id, IData productData)
+        public void AddToOrder(long id, IData product, long orderId)
         {
-            return null; //_customerRepository.FindById(id).AddToCart();
+            var inventoryProductData = product as InventoryProductData;
+            var productEntity = Product.Create(inventoryProductData.ProductInstance.Name,
+                inventoryProductData.ProductInstance.Description,
+                inventoryProductData.ProductInstance.Price);
+
+
+            _customerRepository.FindById(id).Orders
+                .FirstOrDefault(o => o.Id == orderId)
+                .AddOrder(inventoryProductData.UniqueId, productEntity);
+
+            _customerRepository.UnitOfWork.Commit();
+        }
+
+        public void RemoveFromOrder(long id, IData product, long orderId)
+        {
+            var inventoryProductData = product as InventoryProductData;
+            var productEntity = Product.Create(inventoryProductData.ProductInstance.Name,
+                inventoryProductData.ProductInstance.Description,
+                inventoryProductData.ProductInstance.Price);
+
+            _customerRepository.FindById(id).Orders
+                .FirstOrDefault(o => o.Id == orderId)
+                .RemoveOrder(inventoryProductData.UniqueId, productEntity);
+
+            _customerRepository.UnitOfWork.Commit();
+        }
+
+        public void CreateOrder(long id)
+        {
+            _customerRepository.FindById(id).Orders.Add(new Order());
+
+            _customerRepository.UnitOfWork.Commit();
         }
 
         public Customer CreateCustomer(IData customerData)

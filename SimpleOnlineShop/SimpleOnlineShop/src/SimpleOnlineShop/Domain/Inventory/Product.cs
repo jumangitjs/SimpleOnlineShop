@@ -19,7 +19,5 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
         public virtual string Name { get; protected set; }
         public virtual string Description { get; protected set; }
         public virtual double Price { get; protected set; }
-
-        public virtual IEnumerable<InventoryProduct> InventoryProduct { get; protected set; }
     }
 }

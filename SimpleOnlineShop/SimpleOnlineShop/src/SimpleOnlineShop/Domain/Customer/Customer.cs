@@ -4,11 +4,6 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 {
     public class Customer : IAgreggateRoot
     {
-        public Customer()
-        {
-            
-        }
-
         public static Customer Create(string firstName, string lastName, Gender gender, string address, string email, string contactNo)
         {
             return new Customer
@@ -36,7 +31,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
         public virtual string ContactNo { get; protected set; }
     
 
-        public virtual IList<Order> Orders { get; protected set; } = new List<Order>();
+        public virtual List<Order> Orders { get; protected set; } = new List<Order>();
 
         public virtual void ChangeEmail(string newEmail)
         {

@@ -31,7 +31,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extensio
             return Mapper.MapTo<ICollection<TData>>(items);
         }
 
-        public static IEnumerable<TData> AsEnumerable<TData>(this IEnumerable<IEntity> items)
+        public static IEnumerable<TData> AsEnumerableData<TData>(this IEnumerable<IEntity> items)
             where TData : IData
         {
             return Mapper.MapTo<IEnumerable<TData>>(items);

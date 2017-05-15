@@ -1,5 +1,4 @@
 ﻿using System;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO
 {

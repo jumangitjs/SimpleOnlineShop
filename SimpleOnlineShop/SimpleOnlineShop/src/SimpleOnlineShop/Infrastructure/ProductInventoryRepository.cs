@@ -26,13 +26,15 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
         {
             return _unitOfWork.Inventories
                 .Include(p => p.InventoryProducts)
+                .Include("InventoryProducts.ProductInstance")
                 .FirstOrDefault(i => i.Id == id);
         }
 
         public IEnumerable<ProductInventoryList> FindAll()
         {
             return _unitOfWork.Inventories
-                .Include(p => p.InventoryProducts)
+                .Include(i => i.InventoryProducts)
+                .Include("InventoryProducts.ProductInstance")
                 .AsEnumerable();
         }
 

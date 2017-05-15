@@ -1,13 +1,9 @@
-﻿namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
+﻿using System.Collections.Generic;
+
+namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
 {
     public class Product : IEntity
     {
-
-        public Product()
-        {
-            
-        }
-
         public static Product Create(string name, string description, double price)
         {
             return new Product
@@ -24,5 +20,6 @@
         public virtual string Description { get; protected set; }
         public virtual double Price { get; protected set; }
 
+        public virtual IEnumerable<InventoryProduct> InventoryProduct { get; protected set; }
     }
 }

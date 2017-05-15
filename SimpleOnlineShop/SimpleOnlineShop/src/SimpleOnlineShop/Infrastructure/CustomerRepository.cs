@@ -21,7 +21,8 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
         public Customer FindById(long id)
         {
             return _customerUnitOfWork.Customers
-                .Include(p => p.Orders).AsEnumerable()
+                .Include(p => p.Orders)
+                .Include("Orders.Products")
                 .FirstOrDefault(c => c.Id == id);
 
         }
@@ -30,6 +31,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
         {
             return _customerUnitOfWork.Customers
                 .Include(p => p.Orders)
+                .Include("Orders.Products")
                 .AsEnumerable();
         }
 

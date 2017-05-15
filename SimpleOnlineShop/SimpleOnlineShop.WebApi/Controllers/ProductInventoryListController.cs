@@ -29,7 +29,7 @@ namespace SimpleOnlineShop.WebApi.Controllers
         }
 
         [HttpPost]
-        public void CreateInventory([FromBody] InventoryData data)
+        public void CreateInventory([FromBody] ProductInventoryListData data)
         {
             _inventoryService.CreateInventory(data);
         }

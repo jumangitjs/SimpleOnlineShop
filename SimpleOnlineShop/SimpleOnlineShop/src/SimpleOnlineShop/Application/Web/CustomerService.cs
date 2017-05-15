@@ -25,7 +25,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
 
         public IEnumerable<IData> RetrieveAll()
         {
-            return _customerRepository.FindAll().AsEnumerable<CustomerData>();
+            return _customerRepository.FindAll().AsEnumerableData<CustomerData>();
         }
 
         public void AddToOrder(long id, IData product, long orderId)

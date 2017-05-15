@@ -17,6 +17,6 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
 
         public string Name { get; protected set; }
         public string Description { get; protected set; }
-        public List<InventoryProduct> InventoryProducts { get; protected set; } = new List<InventoryProduct>();
+        public List<InventoryProduct> InventoryProducts { get; } = new List<InventoryProduct>();
     }
 }

@@ -2,6 +2,7 @@
 using SimpleOnlineShop.SimpleOnlineShop.Domain;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extension;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 {
@@ -48,7 +49,11 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
                 product.Property(p => p.Name).HasColumnName("name");
                 product.Property(p => p.Description).HasColumnName("description");
                 product.Property(p => p.Price).HasColumnName("price");
-                
+
+                product.HasMany(p => p.InventoryProduct)
+                    .WithOne(ip => ip.ProductInstance)
+                    .HasForeignKey("product_id");
+
                 product.ToTable("product");
             });
 
@@ -56,11 +61,13 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
             {
                 inventoryProduct.Property(ip => ip.Id).HasColumnName("id");
                 inventoryProduct.HasKey(ip => ip.Id);
+                inventoryProduct.HasAlternateKey(ip => ip.UniqueId);
 
                 inventoryProduct.Property(ip => ip.TimeAdded).HasColumnName("time_added");
                 inventoryProduct.Property(ip => ip.UniqueId).HasColumnName("unique_id");
 
-                inventoryProduct.HasOne(ip => ip.ProductInstance).WithMany().HasForeignKey("product_id");
+                inventoryProduct.HasOne(ip => ip.ProductInstance)
+                    .WithMany(p => p.InventoryProduct);
                 
                 inventoryProduct.ToTable("inventory_product");
             });

@@ -1,32 +1,41 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Remotion.Linq.Clauses;
 using SimpleOnlineShop.SimpleOnlineShop.Domain;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
 
-namespace SimpleOnlineShop.test.Infrastructure
+namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 {
-    public class InMemoryProductInventoryRepository : IProductInventoryRepository
+    public class InventoryRepository : IInventoryRepository
     {
-        private readonly InMemoryUnitOfWork _unitOfWork;
 
-        public InMemoryProductInventoryRepository(InMemoryUnitOfWork unitOfWork)
+        private readonly UnitOfWork _unitOfWork;
+
+        public InventoryRepository(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
+        public InventoryRepository()
+        {
+        }
 
         public IUnitOfWork UnitOfWork => _unitOfWork;
 
         public ProductInventoryList FindById(long id)
         {
-            return _unitOfWork.Inventories.Find(id);
+            return _unitOfWork.Inventories
+                .Include(p => p.InventoryProducts)
+                .Include("InventoryProducts.ProductInstance")
+                .FirstOrDefault(i => i.Id == id);
         }
 
         public IEnumerable<ProductInventoryList> FindAll()
         {
-            return _unitOfWork.Inventories.ToList();
+            return _unitOfWork.Inventories
+                .Include(i => i.InventoryProducts)
+                .Include("InventoryProducts.ProductInstance")
+                .AsEnumerable();
         }
 
         public void Add(ProductInventoryList aggregate)
@@ -46,12 +55,15 @@ namespace SimpleOnlineShop.test.Infrastructure
 
         public void RemoveById(long id)
         {
-            _unitOfWork.Inventories.Remove(FindById(id));
+            Remove(FindById(id));
         }
 
         public ProductInventoryList FindByName(string name)
         {
-            return _unitOfWork.Inventories.Last(i => i.Name == name);
+           return _unitOfWork.Inventories
+                .Include(p => p.InventoryProducts)
+                .Include("InventoryProducts.ProductInstance")
+                .FirstOrDefault(i => i.Name == name);
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
+﻿namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
 {
     public class Product : IEntity
     {
@@ -13,7 +11,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
                 Price = price
             };
         }
-
+        
         public long Id { get; set; }
 
         public virtual string Name { get; protected set; }

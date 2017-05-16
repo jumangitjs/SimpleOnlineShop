@@ -10,63 +10,63 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
     public class InventoryService : IInventoryService
     {
 
-        private readonly IProductInventoryRepository _productInventoryRepository;
+        private readonly IInventoryRepository _inventoryRepository;
 
-        public InventoryService(IProductInventoryRepository productInventoryRepository)
+        public InventoryService(IInventoryRepository inventoryRepository)
         {
-            _productInventoryRepository = productInventoryRepository;
+            _inventoryRepository = inventoryRepository;
         }
 
         public IData RetriveById(long id)
         {
-            return _productInventoryRepository.FindById(id).AsData<ProductInventoryListData>();
+            return _inventoryRepository.FindById(id).AsData<InventoryData>();
         }
 
         public IEnumerable<IData> RetrieveAll()
         {
-            return _productInventoryRepository.FindAll().AsEnumerableData<ProductInventoryListData>();
+            return _inventoryRepository.FindAll().AsEnumerableData<InventoryData>();
         }
 
         public IEnumerable<IData> RetrieveProductsByName(long id, string itemName)
         {
-            return _productInventoryRepository.FindById(id).InventoryProducts
+            return _inventoryRepository.FindById(id).InventoryProducts
                 .Where(ip => ip.ProductInstance.Name == itemName)
-                .AsEnumerableData<ProductInventoryListData>();
+                .AsEnumerableData<InventoryData>();
         }
 
         public IData RetrieveItemByUniqueId(long id, string uniqueId)
         {
-            return _productInventoryRepository.FindById(id).InventoryProducts
+            return _inventoryRepository.FindById(id).InventoryProducts
                 .FirstOrDefault(ip => ip.UniqueId == uniqueId)
-                .AsData<ProductInventoryListData>();
+                .AsData<InventoryData>();
         }
 
         public void CreateInventory(IData data)
         {
-            var inventoryData = data as ProductInventoryListData;
-            _productInventoryRepository.Add(
+            var inventoryData = data as InventoryData;
+            _inventoryRepository.Add(
                 ProductInventoryList.Create(inventoryData?.Name, inventoryData?.Description));
 
-            _productInventoryRepository.UnitOfWork.Commit();
+            _inventoryRepository.UnitOfWork.Commit();
         }
 
         public void AddProductToInventory(long id, IData data)
         {
             var inventoryProductData = data as InventoryProductData;
-            var inventory = _productInventoryRepository.FindById(id);
-            
+            var inventory = _inventoryRepository.FindById(id);
+
             var productInstance = inventory.InventoryProducts
-                                        .FirstOrDefault(p => p.ProductInstance.Name ==
-                                                            inventoryProductData?.ProductInstance?.Name)?.ProductInstance
-                                    ?? Product.Create(inventoryProductData?.ProductInstance.Name,
-                                        inventoryProductData?.ProductInstance.Description,
-                                        inventoryProductData.ProductInstance.Price);
+                                        .FirstOrDefault(p => p.ProductInstance.Name 
+                                        == inventoryProductData?.Name)?.ProductInstance
+                                            ?? Product.Create(inventoryProductData?.Name,
+                                            inventoryProductData?.Description,
+                                            inventoryProductData.Price);
 
             var inventoryProdcut = InventoryProduct.Create(inventoryProductData?.UniqueId, productInstance);
 
             inventory.InventoryProducts.Add(inventoryProdcut);
 
-            _productInventoryRepository.UnitOfWork.Commit();
+            _inventoryRepository.UnitOfWork.Commit();
         }
     }
 }

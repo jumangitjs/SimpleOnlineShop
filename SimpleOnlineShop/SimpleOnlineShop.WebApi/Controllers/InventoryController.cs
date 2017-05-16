@@ -7,11 +7,11 @@ namespace SimpleOnlineShop.WebApi.Controllers
 {
     [Produces("application/json")]
     [Route("api/inventory")]
-    public class ProductInventoryListController : Controller
+    public class InventoryController : Controller
     {
         private readonly IInventoryService _inventoryService;
 
-        public ProductInventoryListController(IInventoryService inventoryService)
+        public InventoryController(IInventoryService inventoryService)
         {
             _inventoryService = inventoryService;
         }
@@ -29,7 +29,7 @@ namespace SimpleOnlineShop.WebApi.Controllers
         }
 
         [HttpPost]
-        public void CreateInventory([FromBody] ProductInventoryListData data)
+        public void CreateInventory([FromBody] InventoryData data)
         {
             _inventoryService.CreateInventory(data);
         }

@@ -1,34 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
+using Newtonsoft.Json;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
-using SimpleOnlineShop.SimpleOnlineShop.Infrastructure;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 {
     public class Order : IEntity
     {
-        public Order()
-        {
-            OrderDate = DateTime.Now;
-        }
+        public Order Create(Product product) => new Order {OrderDate = DateTime.Now, Product = product};
+    
+        protected internal Order() { }
+
         public long Id { get; set; }
+        public long CustomerId { get; protected set; }
+        public long ProductId { get; protected set; }
+
         public DateTime OrderDate { get; protected set; }
 
-        public List<Product> Products { get; } = new List<Product>();
-        private readonly IProductInventoryRepository _productInventoryRepository = new ProductInventoryRepository(new UnitOfWork());
+        public Product Product { get; protected set; }
+        public Customer Customer { get; protected set; }
 
-        public void AddOrder(string uniqueId, Product product)
+        public override string ToString()
         {
-            _productInventoryRepository.FindByName("products")
-                .InventoryProducts.Add(
-                    InventoryProduct.Create(uniqueId, product));
-        }
-
-        public void RemoveOrder(string uniqueId, Product product)
-        {
-            _productInventoryRepository.FindByName("products")
-                .InventoryProducts.Remove(
-                    InventoryProduct.Create(uniqueId, product));
+            return JsonConvert.SerializeObject(this);
         }
     }
 }

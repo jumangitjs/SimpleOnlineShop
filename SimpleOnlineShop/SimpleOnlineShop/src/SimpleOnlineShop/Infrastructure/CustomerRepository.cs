@@ -22,7 +22,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
         {
             return _customerUnitOfWork.Customers
                 .Include(p => p.Orders)
-                .Include("Orders.Products")
+                .Include("Orders.Product")
                 .FirstOrDefault(c => c.Id == id);
 
         }
@@ -31,7 +31,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
         {
             return _customerUnitOfWork.Customers
                 .Include(p => p.Orders)
-                .Include("Orders.Products")
+                .Include("Orders.Product")
                 .AsEnumerable();
         }
 

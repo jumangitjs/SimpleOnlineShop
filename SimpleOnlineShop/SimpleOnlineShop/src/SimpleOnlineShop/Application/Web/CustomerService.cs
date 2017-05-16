@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer.Events;
+using SimpleOnlineShop.SimpleOnlineShop.Infrastructure;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extension;
+using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.Events;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
 {
@@ -25,43 +27,27 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
 
         public IEnumerable<IData> RetrieveAll()
         {
-            return _customerRepository.FindAll().AsEnumerableData<CustomerData>();
+            return _customerRepository.FindAll()
+                .AsEnumerableData<CustomerData>();
         }
 
-        public void AddToOrder(long id, IData product, long orderId)
+        public void AddProductToOrder(long id, string inventoryName, string productName)
         {
-            var inventoryProductData = product as InventoryProductData;
-            var productEntity = Product.Create(inventoryProductData.ProductInstance.Name,
-                inventoryProductData.ProductInstance.Description,
-                inventoryProductData.ProductInstance.Price);
+            var inventoryRepository = new InventoryRepository(_customerRepository.UnitOfWork as UnitOfWork);
 
+            var product = inventoryRepository.FindByName(inventoryName).InventoryProducts
+                .FirstOrDefault(ip => ip.ProductInstance.Name == productName).ProductInstance;
 
-            _customerRepository.FindById(id).Orders
-                .FirstOrDefault(o => o.Id == orderId)
-                .AddOrder(inventoryProductData.UniqueId, productEntity);
+            var order = new Order().Create(product);
 
+            _customerRepository.FindById(id).AddOrder(order);
+            
             _customerRepository.UnitOfWork.Commit();
         }
 
-        public void RemoveFromOrder(long id, IData product, long orderId)
+        public IEnumerable<OrderData> RetrieveAllOrders(long id)
         {
-            var inventoryProductData = product as InventoryProductData;
-            var productEntity = Product.Create(inventoryProductData.ProductInstance.Name,
-                inventoryProductData.ProductInstance.Description,
-                inventoryProductData.ProductInstance.Price);
-
-            _customerRepository.FindById(id).Orders
-                .FirstOrDefault(o => o.Id == orderId)
-                .RemoveOrder(inventoryProductData.UniqueId, productEntity);
-
-            _customerRepository.UnitOfWork.Commit();
-        }
-
-        public void CreateOrder(long id)
-        {
-            _customerRepository.FindById(id).Orders.Add(new Order());
-
-            _customerRepository.UnitOfWork.Commit();
+            return _customerRepository.FindById(id).Orders.AsEnumerableData<OrderData>();
         }
 
         public Customer CreateCustomer(IData customerData)

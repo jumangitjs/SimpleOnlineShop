@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer.Events;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer.RegexHelper;
+using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.Events;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 {
@@ -6,7 +11,13 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
     {
         public static Customer Create(string firstName, string lastName, Gender gender, string address, string email, string contactNo)
         {
-            return new Customer
+            if(!RegexUtilities.IsValidContactNo(contactNo))
+                throw new ArgumentException("Invalid contact number {0}", contactNo);
+            if(!RegexUtilities.IsValidEmail(email))
+                throw new ArgumentException("Invalid email {0}", email);
+
+            
+            var customer = new Customer
             {
                 FirstName = firstName,
                 LastName = lastName,
@@ -15,7 +26,16 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
                 ContactNo = contactNo,
                 Gender = gender
             };
+
+            DomainEvent.Raise(new CustomerCreated
+            {
+                Customer = customer
+            });
+
+            return customer;
         }
+
+        protected Customer() { }
 
         public long Id { get; set; }
 
@@ -35,12 +55,45 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 
         public virtual void ChangeEmail(string newEmail)
         {
+            DomainEvent.Raise(new CustomerEmailChanged
+            {
+                CustomerId = Id,
+                OldEmail = Email,
+                NewEmail = newEmail
+            });
+
+            if (!RegexUtilities.IsValidEmail(newEmail))
+                throw new ArgumentException("Invalid email {0}", nameof(newEmail));
+
             Email = newEmail;
         }
 
         public virtual void ChangeContactNo(string newNumber)
         {
+            DomainEvent.Raise(new CustomerContactNoChanged
+            {
+                CustomerId = Id,
+                OldContactNo = ContactNo,
+                NewContactNo = newNumber
+            });
+
+            if (!RegexUtilities.IsValidContactNo(newNumber))
+                throw new ArgumentException("Invalid contact number {0}", nameof(newNumber));
             ContactNo = newNumber;
+        }
+
+        public virtual void AddOrder(Order order)
+        {
+            DomainEvent.Raise(new CustomerAddedOrder
+            {
+                Order = order
+            });
+            Orders.Add(order);
+        }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
         }
     }
 }

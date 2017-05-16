@@ -13,6 +13,8 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
             };
         }
 
+        protected ProductInventoryList() { }
+
         public long Id { get; set; }
 
         public string Name { get; protected set; }

@@ -29,6 +29,18 @@ namespace SimpleOnlineShop.WebApi.Controllers
             return _customerService.RetriveById(id) != null ? _customerService.RetriveById(id) : null;
         }
 
+        [HttpPut("{id}/email")]
+        public void ChangeEmail(long id, [FromBody] CustomerData data)
+        {
+            _customerService.ChangeEmail(id, data.Email);
+        }
+
+        [HttpPut("{id}/contactno")]
+        public void ChangeContactNo(long id, [FromBody] CustomerData data)
+        {
+            _customerService.ChangeEmail(id, data.ContactNo);
+        }
+
         [HttpPost]
         public Customer CreateCustomer([FromBody] CustomerData data)
         {
@@ -42,21 +54,16 @@ namespace SimpleOnlineShop.WebApi.Controllers
         }
 
         [HttpGet("{id}/order")]
-//        public IEnumerable<Order> RetrieveAllOrders(long id)
-//        {
-//            return _customerService.RetriveById(id);
-//        }
-
-        [HttpPost("{id}/order")]
-        public void CreateOrder(long id, [FromBody] CustomerData data)
+        public IEnumerable<OrderData> RetrieveAllOrders(long id)
         {
-            _customerService.CreateOrder(id);
-        }
+            return _customerService.RetrieveAllOrders(id);
+        }   
 
-        [HttpPost("{id}/order/{orderId}")]
-        public void AddProductToOrder(long id, [FromBody] InventoryProductData data, long orderId)
+
+        [HttpPut("{id}/order")]
+        public void AddProductToOrder(long id, [FromBody] OrderForm form)
         {
-            _customerService.AddToOrder(id, data, orderId);
+            _customerService.AddProductToOrder(id, form.InventoryName, form.ProductName);
         }
 
     }

@@ -13,7 +13,7 @@ namespace SimpleOnlineShop.test.Domain.Customer
             const string lastNAme = "LastName";
             const string address = "Lapu Lapu City";
             const string email = "firstlast@email.com";
-            const Gender gender = Gender.Male;
+            const Gender gender = Gender.male;
             const string contactNo = "09322554478";
 
             return SimpleOnlineShop.Domain.Customer.Customer.Create(

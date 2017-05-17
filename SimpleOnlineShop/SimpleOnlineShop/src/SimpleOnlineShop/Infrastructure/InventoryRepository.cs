@@ -22,7 +22,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 
         public IUnitOfWork UnitOfWork => _unitOfWork;
 
-        public ProductInventoryList FindById(long id)
+        public Inventory FindById(long id)
         {
             return _unitOfWork.Inventories
                 .Include(p => p.InventoryProducts)
@@ -30,7 +30,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
                 .FirstOrDefault(i => i.Id == id);
         }
 
-        public IEnumerable<ProductInventoryList> FindAll()
+        public IEnumerable<Inventory> FindAll()
         {
             return _unitOfWork.Inventories
                 .Include(i => i.InventoryProducts)
@@ -38,17 +38,17 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
                 .AsEnumerable();
         }
 
-        public void Add(ProductInventoryList aggregate)
+        public void Add(Inventory aggregate)
         {
             _unitOfWork.Inventories.Add(aggregate);
         }
 
-        public void Remove(ProductInventoryList aggregate)
+        public void Remove(Inventory aggregate)
         {
             _unitOfWork.Inventories.Remove(aggregate);
         }
 
-        public void Modify(ProductInventoryList aggregate)
+        public void Modify(Inventory aggregate)
         {
             _unitOfWork.Entry(aggregate).State = EntityState.Modified;
         }
@@ -58,7 +58,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
             Remove(FindById(id));
         }
 
-        public ProductInventoryList FindByName(string name)
+        public Inventory FindByName(string name)
         {
            return _unitOfWork.Inventories
                 .Include(p => p.InventoryProducts)

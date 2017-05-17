@@ -2,18 +2,18 @@
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
 {
-    public class ProductInventoryList : IAgreggateRoot
+    public class Inventory : IAgreggateRoot
     {
-        public static ProductInventoryList Create(string name, string description)
+        public static Inventory Create(string name, string description)
         {
-            return new ProductInventoryList
+            return new Inventory
             {
                 Name = name,
                 Description = description
             };
         }
 
-        protected ProductInventoryList() { }
+        protected Inventory() { }
 
         public long Id { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory
 {
-    public interface IInventoryRepository : IRepository<ProductInventoryList>
+    public interface IInventoryRepository : IRepository<Inventory>
     {
-        ProductInventoryList FindByName(string name);
+        Inventory FindByName(string name);
     }
 }

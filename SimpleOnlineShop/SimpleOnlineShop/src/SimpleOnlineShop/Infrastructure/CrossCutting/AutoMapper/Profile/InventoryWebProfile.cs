@@ -8,7 +8,8 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapp
     {
         public InventoryWebProfile()
         {
-            var mapper = CreateMap<ProductInventoryList, InventoryData>();
+
+            var mapper = CreateMap<Inventory, InventoryData>();
 
             mapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
             mapper.ForMember(dto => dto.Name, mc => mc.MapFrom(e => e.Name));
@@ -22,10 +23,9 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapp
             inventoryProductMapper.ForMember(dto => dto.TimeAdded, mc => mc.MapFrom(e => e.TimeAdded));
             inventoryProductMapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
             inventoryProductMapper.ForMember(dto => dto.Name, mc => mc.MapFrom(e => e.ProductInstance.Name));
+            inventoryProductMapper.ForMember(dto => dto.Brand, mc => mc.MapFrom(e => e.ProductInstance.Brand));
             inventoryProductMapper.ForMember(dto => dto.Description, mc => mc.MapFrom(e => e.ProductInstance.Description));
             inventoryProductMapper.ForMember(dto => dto.Price, mc => mc.MapFrom(e => e.ProductInstance.Price));
-
-            
 
         }
     }

@@ -58,12 +58,17 @@ namespace SimpleOnlineShop.WebApi.Controllers
         {
             return _customerService.RetrieveAllOrders(id);
         }   
-
-
+        
         [HttpPut("{id}/order")]
         public void AddProductToOrder(long id, [FromBody] OrderForm form)
         {
             _customerService.AddProductToOrder(id, form.InventoryName, form.ProductName);
+        }
+
+        [HttpDelete("{id}/order")]
+        public void DeleteOrder(long id, [FromBody] OrderForm form)
+        {
+            _customerService.DeleteOrder(id, form.ProductName);
         }
 
     }

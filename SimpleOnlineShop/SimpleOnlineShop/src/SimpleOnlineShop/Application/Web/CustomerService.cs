@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer.Events;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extension;
-using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.Events;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
 {
@@ -14,10 +12,12 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
     {
 
         private readonly ICustomerRepository _customerRepository;
+        private readonly IOrderRepository _orderRepository;
 
-        public CustomerService(ICustomerRepository customerRepository)
+        public CustomerService(ICustomerRepository customerRepository, IOrderRepository orderRepository)
         {
             _customerRepository = customerRepository;
+            _orderRepository = orderRepository;
         }
 
         public IData RetriveById(long id)
@@ -41,7 +41,6 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
             var order = new Order().Create(product);
 
             _customerRepository.FindById(id).AddOrder(order);
-            
             _customerRepository.UnitOfWork.Commit();
         }
 
@@ -53,7 +52,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
         public Customer CreateCustomer(IData customerData)
         {
             var customerDTO = customerData as CustomerData;
-            var gender = (Gender) Enum.Parse(typeof(Gender), customerDTO.Gender);
+            var gender = (Gender) Enum.Parse(typeof(Gender), customerDTO.Gender.ToLower());
 
             var customer = Customer.Create(
                 customerDTO.FirstName,
@@ -61,7 +60,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
                 gender,
                 customerDTO.Address,
                 customerDTO.Email,
-                customerDTO.ContactNo);
+                customerDTO.ContactNo);     
 
             _customerRepository.Add(customer);
             _customerRepository.UnitOfWork.Commit();
@@ -85,6 +84,14 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
         {
             _customerRepository.RemoveById(id);
             _customerRepository.UnitOfWork.Commit();
+        }
+
+        public void DeleteOrder(long id, string productName)
+        {
+            var order = _customerRepository.FindById(id).Orders
+                .FirstOrDefault(o => o.Product.Name == productName);
+            _orderRepository.Remove(order);
+            _orderRepository.UnitOfWork.Commit();
         }
     }
 }

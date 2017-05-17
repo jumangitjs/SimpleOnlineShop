@@ -2,19 +2,19 @@
 using System.Linq;
 using SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
-using SimpleOnlineShop.SimpleOnlineShop.Infrastructure;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extension;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
 {
     public class InventoryService : IInventoryService
     {
-
         private readonly IInventoryRepository _inventoryRepository;
+        private readonly IInventoryProductRepository _inventoryProductRepository;
 
-        public InventoryService(IInventoryRepository inventoryRepository)
+        public InventoryService(IInventoryRepository inventoryRepository, IInventoryProductRepository inventoryProductRepository)
         {
             _inventoryRepository = inventoryRepository;
+            _inventoryProductRepository = inventoryProductRepository;
         }
 
         public IData RetriveById(long id)
@@ -45,7 +45,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
         {
             var inventoryData = data as InventoryData;
             _inventoryRepository.Add(
-                ProductInventoryList.Create(inventoryData?.Name, inventoryData?.Description));
+                Inventory.Create(inventoryData?.Name, inventoryData?.Description));
 
             _inventoryRepository.UnitOfWork.Commit();
         }
@@ -59,6 +59,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
                                         .FirstOrDefault(p => p.ProductInstance.Name 
                                         == inventoryProductData?.Name)?.ProductInstance
                                             ?? Product.Create(inventoryProductData?.Name,
+                                            inventoryProductData?.Brand,
                                             inventoryProductData?.Description,
                                             inventoryProductData.Price);
 
@@ -67,6 +68,26 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
             inventory.InventoryProducts.Add(inventoryProdcut);
 
             _inventoryRepository.UnitOfWork.Commit();
+        }
+
+        public void DeleteInventory(long id)
+        {
+            _inventoryRepository.RemoveById(id);
+            _inventoryRepository.UnitOfWork.Commit();
+        }
+
+        public void DeleteInventoryProduct(long inventoryId, string productName)
+        {
+            var inventory = _inventoryRepository.FindById(inventoryId);
+            var product = inventory.InventoryProducts.FirstOrDefault(ip => ip.ProductInstance.Name == productName);
+
+            _inventoryProductRepository.Remove(product);
+            _inventoryProductRepository.UnitOfWork.Commit();
+        }
+
+        public IEnumerable<IData> RetrieveInventoryProducts(long id)
+        {
+            return _inventoryRepository.FindById(id).InventoryProducts.AsEnumerableData<InventoryProductData>();
         }
     }
 }

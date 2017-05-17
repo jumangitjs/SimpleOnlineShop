@@ -28,13 +28,15 @@
     <PackageReference Include="Serilog" Version="2.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Serilog.Sinks.PostgreSQL\Serilog.Sinks.PostgreSQL.csproj">
-      <Project>{1192247a-7930-42be-8380-567581e9d225}</Project>
-      <Name>Serilog.Sinks.PostgreSQL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="src\SimpleOnlineShop\Domain\Customer\RegexHelper" />
     <Folder Include="src\SimpleOnlineShop\Infrastructure\CrossCutting\Logging" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Serilog.Sinks.PostgreSQL\Serilog.Sinks.PostgreSQL.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Serilog.Sinks.PostgreSQL">
+      <HintPath>..\Serilog.Sinks.PostgreSQL\DLL\Serilog.Sinks.PostgreSQL.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

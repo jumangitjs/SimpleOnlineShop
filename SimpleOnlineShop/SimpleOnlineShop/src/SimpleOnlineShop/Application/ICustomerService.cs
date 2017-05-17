@@ -12,5 +12,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application
         void DeleteCustomer(long id);
         void AddProductToOrder(long id, string inventoryName, string productName);
         IEnumerable<OrderData> RetrieveAllOrders(long id);
+
+        void DeleteOrder(long id, string productName);
     }
 }

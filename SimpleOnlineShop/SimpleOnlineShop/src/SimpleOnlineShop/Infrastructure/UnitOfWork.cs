@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using SimpleOnlineShop.SimpleOnlineShop.Domain;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
@@ -9,7 +10,8 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<ProductInventoryList> Inventories { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<InventoryProduct> InventoryProducts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -48,6 +50,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 
                 product.Property(p => p.Name).HasColumnName("name");
                 product.Property(p => p.Description).HasColumnName("description");
+                product.Property(p => p.Brand).HasColumnName("brand");
                 product.Property(p => p.Price).HasColumnName("price");
                 
                 product.ForNpgsqlUseXminAsConcurrencyToken();
@@ -65,21 +68,22 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
                 inventoryProduct.Property(ip => ip.UniqueId).HasColumnName("unique_id");
 
                 inventoryProduct.HasOne(ip => ip.ProductInstance)
-                    .WithMany().HasForeignKey("product_id");
+                    .WithMany().HasForeignKey("product_id").OnDelete(DeleteBehavior.Cascade);
                 
                 inventoryProduct.ForNpgsqlUseXminAsConcurrencyToken();
 
                 inventoryProduct.ToTable("inventory_product");
             });
 
-            modelBuilder.Entity<ProductInventoryList>(inventory =>
+            modelBuilder.Entity<Inventory>(inventory =>
             {
                 inventory.Property(i => i.Id).HasColumnName("id").UseNpgsqlSerialColumn();
                 inventory.HasKey(i => i.Id);
                 inventory.Property(i => i.Name).HasColumnName("name");
                 inventory.Property(i => i.Description).HasColumnName("description");
 
-                inventory.HasMany(i => i.InventoryProducts).WithOne().HasForeignKey("inventory_id");
+                inventory.HasMany(i => i.InventoryProducts).WithOne().HasForeignKey("inventory_id")
+                    .IsRequired(false).OnDelete(DeleteBehavior.Cascade);
 
                 inventory.ForNpgsqlUseXminAsConcurrencyToken();
 
@@ -95,8 +99,10 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
                 order.Property(o => o.CustomerId).HasColumnName("customer_id");
                 order.Property(o => o.ProductId).HasColumnName("product_id");
 
-                order.HasOne(o => o.Product).WithMany().HasForeignKey(o => o.ProductId).IsRequired();
-                order.HasOne(o => o.Customer).WithMany(o => o.Orders).HasForeignKey(o => o.CustomerId).IsRequired();
+                order.HasOne(o => o.Product).WithMany().HasForeignKey(o => o.ProductId)
+                    .IsRequired().OnDelete(DeleteBehavior.Restrict);
+                order.HasOne(o => o.Customer).WithMany(o => o.Orders).HasForeignKey(o => o.CustomerId)
+                    .IsRequired().OnDelete(DeleteBehavior.Restrict);
 
                 order.ForNpgsqlUseXminAsConcurrencyToken();
 

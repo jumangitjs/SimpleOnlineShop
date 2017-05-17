@@ -4,7 +4,7 @@ using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Domain.Customer
 {
-    public class Order : IEntity
+    public class Order : IAgreggateRoot
     {
         public Order Create(Product product) => new Order {OrderDate = DateTime.Now, Product = product};
     

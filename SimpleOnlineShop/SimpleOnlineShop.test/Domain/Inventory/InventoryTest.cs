@@ -7,16 +7,16 @@ namespace SimpleOnlineShop.test.Domain.Inventory
     public class InventoryTest
     {
         [Fact]
-        public SimpleOnlineShop.Domain.Inventory.ProductInventoryList TestInventory()
+        public SimpleOnlineShop.Domain.Inventory.Inventory TestInventory()
         {
-            return SimpleOnlineShop.Domain.Inventory.ProductInventoryList.Create("Test", "test desc");
+            return SimpleOnlineShop.Domain.Inventory.Inventory.Create("Test", "test desc");
         }
 
         [Fact]
         public void AddProductToInventory()
         {
             var inventory = TestInventory();
-            var product = Product.Create( "testprod", "desc", 10);
+            var product = Product.Create( "testprod", "testbrand","desc", 10);
             var inventory_product = InventoryProduct.Create("123123", product);
 
             inventory.InventoryProducts.Add(inventory_product);

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Serilog.Sinks.PostgreSQL</id>
+    <version>1.0.0</version>
+    <title>Serilog Postgres Sink</title>
+    <authors>John Joshua Ferrer</authors>
+    <owners>John Joshua Ferrer</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Serilog sink implementation for Postgres and dotnet Core</description>
+    <releaseNotes>Alpha version of Postgres Serilog Sink</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Sink Serilog Postgres</tags>
+  </metadata>
+</package>

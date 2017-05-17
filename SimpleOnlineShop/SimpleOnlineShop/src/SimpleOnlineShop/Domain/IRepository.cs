@@ -13,6 +13,5 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain
         void Remove(TAggregate aggregate);
         void Modify(TAggregate aggregate);
         void RemoveById(long id);
-
     }
 }

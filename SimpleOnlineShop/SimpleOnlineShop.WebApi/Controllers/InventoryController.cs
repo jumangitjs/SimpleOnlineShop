@@ -16,16 +16,12 @@ namespace SimpleOnlineShop.WebApi.Controllers
             _inventoryService = inventoryService;
         }
 
+        #region Index
+
         [HttpGet]
         public IEnumerable<IData> GetAllInventory()
         {
             return _inventoryService.RetrieveAll();
-        }
-
-        [HttpGet("{id}")]
-        public IData GetProducts(long id)
-        {
-            return _inventoryService.RetriveById(id) != null ? _inventoryService.RetriveById(id) : null;
         }
 
         [HttpPost]
@@ -33,11 +29,43 @@ namespace SimpleOnlineShop.WebApi.Controllers
         {
             _inventoryService.CreateInventory(data);
         }
+        
+        #endregion
 
-        [HttpPut("{id}/addproduct")]
+        #region /{id} region
+
+        [HttpGet("{id}")]
+        public IData GetInventoryById(long id)
+        {
+            return _inventoryService.RetriveById(id) != null ? _inventoryService.RetriveById(id) : null;
+        }
+
+        [HttpDelete("{id}")]
+        public void DeleteInventory(long id)
+        {
+            _inventoryService.DeleteInventory(id);   
+        }
+
+        [HttpGet("{id}/product")]
+        public IEnumerable<IData> GetInventoryProducts(long id)
+        {
+            return _inventoryService.RetrieveInventoryProducts(id);
+        }
+
+        [HttpPut("{id}/product")]
         public void AddProductToInventoryList(long id, [FromBody] InventoryProductData data)
         {
             _inventoryService.AddProductToInventory(id, data);
         }
+
+        [HttpDelete("{id}/product")]
+        public void DeleteProductFromInventoryList(long id, [FromBody] InventoryProductData data)
+        {
+            _inventoryService.DeleteInventoryProduct(id, data.Name);
+        }
+
+        #endregion
+        
+
     }
 }

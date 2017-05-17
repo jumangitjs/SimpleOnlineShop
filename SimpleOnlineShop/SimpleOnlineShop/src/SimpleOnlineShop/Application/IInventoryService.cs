@@ -8,5 +8,9 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application
         IData RetrieveItemByUniqueId(long id, string uniqueId);
         void CreateInventory(IData data);
         void AddProductToInventory(long id, IData data);
+
+        void DeleteInventory(long id);
+        void DeleteInventoryProduct(long inventoryId, string productName);
+        IEnumerable<IData> RetrieveInventoryProducts(long id);
     }
 }

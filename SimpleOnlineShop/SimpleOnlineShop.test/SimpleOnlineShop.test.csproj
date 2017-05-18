@@ -17,6 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application" />
+    <Folder Include="Domain\User" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleOnlineShop\SimpleOnlineShop.csproj">

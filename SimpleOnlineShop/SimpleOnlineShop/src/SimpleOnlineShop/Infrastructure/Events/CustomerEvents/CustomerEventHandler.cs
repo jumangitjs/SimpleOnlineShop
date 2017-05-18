@@ -1,53 +1,53 @@
 ﻿using Microsoft.Extensions.Logging;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer.Events;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg.Events;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Logging;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.Events.CustomerEvents
 {
-    public class CustomerEmailChangedEventHandler : IDomainEventHandler<CustomerEmailChanged>
+    public class CustomerEmailChangedEventHandler : IDomainEventHandler<UserEmailChanged>
     {
-        public void HandleEvent(CustomerEmailChanged @event)
+        public void HandleEvent(UserEmailChanged @event)
         {
             var log = AppLogger.CreateLogger<CustomerEmailChangedEventHandler>();
 
             log.LogInformation(
-                "Customer with id {Customer} email changed from {OldEmail} to {NewEmail}",
+                "User with id {User} email changed from {OldEmail} to {NewEmail}",
                 @event.CustomerId, @event.OldEmail, @event.NewEmail
             );
         }
     }
 
-    public class CustomerContactNoChangedEventHandler : IDomainEventHandler<CustomerContactNoChanged>
+    public class CustomerContactNoChangedEventHandler : IDomainEventHandler<UserContactNoChanged>
     {
-        public void HandleEvent(CustomerContactNoChanged @event)
+        public void HandleEvent(UserContactNoChanged @event)
         {
             var log = AppLogger.CreateLogger<CustomerContactNoChangedEventHandler>();
 
             log.LogInformation(
-                "Customer with id {CustomerId} contact number changed from {OldContactNo} to {NewContactNo}",
+                "User with id {UserId} contact number changed from {OldContactNo} to {NewContactNo}",
                 @event.CustomerId, @event.OldContactNo, @event.NewContactNo);
         }
     }
 
-    public class CustomerCreatedEventHandler : IDomainEventHandler<CustomerCreated>
+    public class CustomerCreatedEventHandler : IDomainEventHandler<UserCreated>
     {
-        public void HandleEvent(CustomerCreated @event)
+        public void HandleEvent(UserCreated @event)
         {
             var log = AppLogger.CreateLogger<CustomerCreatedEventHandler>();
 
             log.LogInformation(
-                "Customer created, data as follows: {Customer}", @event.Customer);
+                "User created, data as follows: {User}", @event.User);
         }
     }
 
-    public class CustomerAddedOrderHandler : IDomainEventHandler<CustomerAddedOrder>
+    public class CustomerAddedOrderHandler : IDomainEventHandler<UserAddedOrder>
     {
-        public void HandleEvent(CustomerAddedOrder @event)
+        public void HandleEvent(UserAddedOrder @event)
         {
-            var log = AppLogger.CreateLogger<CustomerAddedOrder>();
+            var log = AppLogger.CreateLogger<UserAddedOrder>();
 
             log.LogInformation(
-                "Customer added an order, data as follows: {Order}", @event.Order);
+                "User added an order, data as follows: {Order}", @event.Order);
         }
     }
 }

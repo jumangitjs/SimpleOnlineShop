@@ -1,5 +1,5 @@
 ﻿using SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.InventoryAgg;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extension;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapper.Profile

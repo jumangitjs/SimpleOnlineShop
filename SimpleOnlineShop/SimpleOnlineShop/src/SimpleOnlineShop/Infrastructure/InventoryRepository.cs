@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SimpleOnlineShop.SimpleOnlineShop.Domain;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.InventoryAgg;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 {

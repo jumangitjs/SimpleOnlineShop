@@ -1,14 +1,19 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Linq;
+using AspNet.Security.OpenIdConnect.Primitives;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OpenIddict.Core;
 using Serilog;
 using Serilog.Sinks.PostgreSQL;
 using SimpleOnlineShop.SimpleOnlineShop.Application;
 using SimpleOnlineShop.SimpleOnlineShop.Application.Web;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.AuthEntitiesAgg;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.InventoryAgg;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extension;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.Events;
@@ -26,13 +31,12 @@ namespace SimpleOnlineShop.WebApi
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
+            var connectionString = Configuration.GetConnectionString("SimpleOnlineShop");
+            var logsTable = Configuration["LogsTable"];
+            
             Log.Logger = new LoggerConfiguration()
                 .Enrich.FromLogContext()
-                .WriteTo.PostgreSqlServer("Host=127.0.0.1;" +
-                                          "Username=postgres;" +
-                                          "Password=postgres;" +
-                                          "Database=onlineshop;" +
-                                          "Port=5432;", "logs")
+                .WriteTo.PostgreSqlServer(connectionString, logsTable)
                 .WriteTo.LiterateConsole()
                 .CreateLogger();
         }
@@ -40,21 +44,65 @@ namespace SimpleOnlineShop.WebApi
         public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services) 
         {
             // Add framework services.
             services.AddDbContext<UnitOfWork>();
 
+            services.AddDbContext<UnitOfWork>(options =>
+            {
+                options.UseNpgsql(Configuration.GetConnectionString("SimpleOnlineShop"));
+            });
+
             //repositories
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IInventoryRepository, InventoryRepository>();
             services.AddScoped<IInventoryProductRepository, InventoryProductRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
 
             //web app services
-            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IInventoryService, InventoryService>();
+
+            InitializePolicies(services);
+
             services.AddMvc();
+        }
+
+        private void InitializePolicies(IServiceCollection services)
+        {
+            var scopeFactory = services
+                .BuildServiceProvider()
+                .GetRequiredService<IServiceScopeFactory>();
+
+            services.AddAuthorization(options =>
+            {
+                using (var scope = scopeFactory.CreateScope())
+                {
+                    var provider = scope.ServiceProvider;
+                    using (var dbContext = provider.GetRequiredService<UnitOfWork>())
+                    {
+                        var permissions = dbContext.Permissions
+                            .Include("Roles.Role")
+                            .AsEnumerable();    
+
+                        foreach (var permission in permissions)
+                        {
+                            options.AddPolicy(permission.Name, policy =>
+                            {
+                                policy.RequireClaim(OpenIdConnectConstants.Claims.Scope, permission.Name);
+                            });
+                        }
+
+                        // Add openid scopes
+                        options.AddPolicy(OpenIddictConstants.Scopes.Roles, policy =>
+                        {
+                            policy.RequireClaim(OpenIdConnectConstants.Claims.Scope, OpenIddictConstants.Scopes.Roles);
+                        });
+                    }
+                }
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

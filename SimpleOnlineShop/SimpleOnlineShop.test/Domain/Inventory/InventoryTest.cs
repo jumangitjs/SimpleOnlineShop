@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.InventoryAgg;
 using Xunit;
 
 namespace SimpleOnlineShop.test.Domain.Inventory
@@ -7,9 +7,9 @@ namespace SimpleOnlineShop.test.Domain.Inventory
     public class InventoryTest
     {
         [Fact]
-        public SimpleOnlineShop.Domain.Inventory.Inventory TestInventory()
+        public SimpleOnlineShop.Domain.InventoryAgg.Inventory TestInventory()
         {
-            return SimpleOnlineShop.Domain.Inventory.Inventory.Create("Test", "test desc");
+            return SimpleOnlineShop.Domain.InventoryAgg.Inventory.Create("Test", "test desc");
         }
 
         [Fact]

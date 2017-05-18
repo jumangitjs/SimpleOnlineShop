@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SimpleOnlineShop.SimpleOnlineShop.Domain;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Inventory;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.InventoryAgg;
 
 namespace SimpleOnlineShop.test.Infrastructure
 {
@@ -45,7 +45,7 @@ namespace SimpleOnlineShop.test.Infrastructure
 
         public void RemoveById(long id)
         {
-            _unitOfWork.Inventories.Remove(FindById(id));
+            _unitOfWork.Inventories.Remove(FindById(id));   
         }
 
         public Inventory FindByName(string name)

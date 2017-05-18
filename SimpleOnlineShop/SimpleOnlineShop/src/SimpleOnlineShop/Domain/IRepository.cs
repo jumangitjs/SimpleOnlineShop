@@ -3,7 +3,7 @@
 namespace SimpleOnlineShop.SimpleOnlineShop.Domain
 {
     public interface IRepository<TAggregate>
-        where TAggregate : IAgreggateRoot
+        where TAggregate : IAggregateRoot
     {
         IUnitOfWork UnitOfWork { get; }
 

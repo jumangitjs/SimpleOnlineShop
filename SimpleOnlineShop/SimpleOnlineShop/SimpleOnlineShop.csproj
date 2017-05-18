@@ -8,7 +8,7 @@
     <None Remove="src\SimpleOnlineShop\Infrastructure\CrossCutting\AutoMapper\Extensio\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.5.0" />
+    <PackageReference Include="Autofac" Version="4.6.0" />
     <PackageReference Include="AutoMapper">
       <Version>6.0.2</Version>
     </PackageReference>
@@ -28,7 +28,10 @@
     <PackageReference Include="Serilog" Version="2.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\SimpleOnlineShop\Domain\Customer\RegexHelper" />
+    <Folder Include="src\SimpleOnlineShop\Domain\AccountAgg" />
+    <Folder Include="src\SimpleOnlineShop\Domain\InventoryAgg" />
+    <Folder Include="src\SimpleOnlineShop\Domain\UserAgg\Events" />
+    <Folder Include="src\SimpleOnlineShop\Domain\UserAgg\RegexHelper" />
     <Folder Include="src\SimpleOnlineShop\Infrastructure\CrossCutting\Logging" />
   </ItemGroup>
   <ItemGroup>

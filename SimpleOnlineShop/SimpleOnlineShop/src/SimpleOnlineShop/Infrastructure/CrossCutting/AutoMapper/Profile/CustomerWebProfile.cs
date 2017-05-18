@@ -1,5 +1,5 @@
 ﻿using SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO;
-using SimpleOnlineShop.SimpleOnlineShop.Domain.Customer;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg;
 using SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.Extension;
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapper.Profile
@@ -17,7 +17,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapp
             orderMapper.ForMember(dto => dto.Description, mc => mc.MapFrom(e => e.Product.Description));
             orderMapper.ForMember(dto => dto.Price, mc => mc.MapFrom(e => e.Product.Price));
 
-            var mapper = CreateMap<Customer, CustomerData>();
+            var mapper = CreateMap<User, UserData>();
 
             mapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
             mapper.ForMember(dto => dto.FirstName, mc => mc.MapFrom(e => e.FirstName));

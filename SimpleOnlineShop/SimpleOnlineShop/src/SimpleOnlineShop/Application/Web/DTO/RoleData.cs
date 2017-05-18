@@ -2,12 +2,13 @@
 
 namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web.DTO
 {
-    public class InventoryData : IData
+    public class RoleData : IData
     {
         public long Id { get; set; }
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public IList<InventoryProductData> InventoryProducts { get; set; } = new List<InventoryProductData>();
+
+        public IList<PermissionData> Permissions { get; set; }
     }
 }

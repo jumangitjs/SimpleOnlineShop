@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using AspNet.Security.OpenIdConnect.Primitives;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using OpenIddict.Core;
 using Serilog;
 using Serilog.Sinks.PostgreSQL;
@@ -110,6 +112,46 @@ namespace SimpleOnlineShop.WebApi
             ILoggerFactory loggerFactory, IApplicationLifetime appLifetime)
         {
             loggerFactory.AddSerilog();
+
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:4200", "");   //listen to web/presentation application
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+            });
+
+            //insert jwt auth server authentication
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
+
+            // Authenticate users on a separate server
+            app.UseJwtBearerAuthentication(new JwtBearerOptions
+            {
+                Audience = "onlineshop",
+                Authority = "http://localhost:5000/",
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true,
+                RequireHttpsMetadata = false,
+                TokenValidationParameters = new TokenValidationParameters
+                {
+                    NameClaimType = OpenIdConnectConstants.Claims.Name,
+                    RoleClaimType = OpenIdConnectConstants.Claims.Role
+                }
+            });
+
+            app.UseJwtBearerAuthentication(new JwtBearerOptions
+            {
+                Audience = "onlineshop",
+                Authority = "http://192.168.143.180:5000/",
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true,
+                RequireHttpsMetadata = false,
+                TokenValidationParameters = new TokenValidationParameters
+                {
+                    NameClaimType = OpenIdConnectConstants.Claims.Name,
+                    RoleClaimType = OpenIdConnectConstants.Claims.Role
+                }
+            });
 
             appLifetime.ApplicationStopped.Register(Log.CloseAndFlush);
 

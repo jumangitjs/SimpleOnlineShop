@@ -8,6 +8,6 @@
     <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DLL" />
+    <Folder Include="DLL\lib" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using SimpleOnlineShop.SimpleOnlineShop.Domain;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.AccountAgg;
@@ -26,29 +25,45 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
 
         #endregion
 
-        public UnitOfWork(DbContextOptions options) : base(options) { }
-        
+        public UnitOfWork() { }
+
+        public UnitOfWork(DbContextOptions<UnitOfWork> options) : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(user =>
             {
-                user.Property(c => c.Id).HasColumnName("id").UseNpgsqlSerialColumn();
-                user.HasKey(c => c.Id);
+                user.Property(u => u.Id).HasColumnName("id").UseNpgsqlSerialColumn();
+                user.HasKey(u => u.Id);
 
-                user.Property(c => c.FirstName).HasColumnName("first_name");
-                user.Property(c => c.LastName).HasColumnName("last_name");
-                user.Property(c => c.Gender).HasColumnName("gender");
-                user.Property(c => c.Address).HasColumnName("address");
-                user.Property(c => c.Email).HasColumnName("email");
-                user.Property(c => c.ContactNo).HasColumnName("contact_no");
+                user.Property(u => u.FirstName).HasColumnName("first_name");
+                user.Property(u => u.LastName).HasColumnName("last_name");
+                user.Property(u => u.Gender).HasColumnName("gender");
+                user.Property(u => u.Address).HasColumnName("address");
+                user.Property(u => u.Email).HasColumnName("email");
+                user.Property(u => u.ContactNo).HasColumnName("contact_no");
 
-                user.HasMany(c => c.Roles).WithOne().HasForeignKey("user_id");
-                
+                user.HasMany(u => u.Roles).WithOne().HasForeignKey("user_id");
+                user.HasOne(u => u.Account).WithOne(a => a.User).HasForeignKey<Account>("user_id");
+
                 user.ForNpgsqlUseXminAsConcurrencyToken();
 
                 user.ToTable("user");
             });
 
+            modelBuilder.Entity<Account>(acc =>
+            {
+                acc.Property(a => a.Id).HasColumnName("id").UseNpgsqlSerialColumn();
+                acc.HasKey(a => a.Id);
+
+                acc.Property(a => a.Username).HasColumnName("username");
+                acc.Property(a => a.Password).HasColumnName("password");
+
+                acc.ForNpgsqlUseXminAsConcurrencyToken();
+
+                acc.ToTable("credentials");
+            });
+            
             modelBuilder.Entity<Role>(role =>
             {
                 role.Property(r => r.Id).HasColumnName("id");

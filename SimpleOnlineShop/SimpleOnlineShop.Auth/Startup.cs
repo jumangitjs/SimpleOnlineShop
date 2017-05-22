@@ -52,10 +52,13 @@ namespace SimpleOnlineShop.Auth
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
 
+            var x = Configuration.GetConnectionString("SimpleOnlineShop");
+
             services.AddDbContext<UnitOfWork>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("SimpleOnlineShop"));
             });
+
 
             services.AddDbContext<DbContext>(options =>
             {
@@ -118,7 +121,7 @@ namespace SimpleOnlineShop.Auth
 
             app.UseCors(builder =>
             {
-                builder.WithOrigins("http://localhost:4200"); //add ip soon
+                builder.WithOrigins("http://192.168.143.180:4200", "http://localhost:4200");
                 builder.AllowAnyHeader();
                 builder.AllowAnyMethod();
             });

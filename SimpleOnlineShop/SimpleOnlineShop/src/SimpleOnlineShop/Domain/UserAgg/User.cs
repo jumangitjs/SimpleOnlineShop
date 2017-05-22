@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using SimpleOnlineShop.SimpleOnlineShop.Domain.AccountAgg;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.AuthEntitiesAgg;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg.Events;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg.RegexHelper;
@@ -53,6 +54,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg
 
         public virtual IList<Order> Orders { get; protected set; } = new List<Order>();
         public virtual IList<UserRole> Roles { get; protected set; } = new List<UserRole>();
+        public virtual Account Account { get; protected set; }
 
         public virtual void ChangeEmail(string newEmail)
         {

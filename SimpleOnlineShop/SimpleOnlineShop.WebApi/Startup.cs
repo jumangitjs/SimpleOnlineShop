@@ -49,8 +49,6 @@ namespace SimpleOnlineShop.WebApi
         public void ConfigureServices(IServiceCollection services) 
         {
             // Add framework services.
-            services.AddDbContext<UnitOfWork>();
-
             services.AddDbContext<UnitOfWork>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("SimpleOnlineShop"));
@@ -66,7 +64,7 @@ namespace SimpleOnlineShop.WebApi
             //web app services
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IInventoryService, InventoryService>();
-
+            
             InitializePolicies(services);
 
             services.AddMvc();
@@ -115,7 +113,7 @@ namespace SimpleOnlineShop.WebApi
 
             app.UseCors(builder =>
             {
-                builder.WithOrigins("http://localhost:4200", "");   //listen to web/presentation application
+                builder.WithOrigins("http://localhost:4200");   //listen to web/presentation application
                 builder.AllowAnyHeader();
                 builder.AllowAnyMethod();
             });
@@ -142,7 +140,7 @@ namespace SimpleOnlineShop.WebApi
             app.UseJwtBearerAuthentication(new JwtBearerOptions
             {
                 Audience = "onlineshop",
-                Authority = "http://192.168.143.180:5000/",
+                Authority = "http://192.168.143.184:5000/",
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true,
                 RequireHttpsMetadata = false,

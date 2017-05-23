@@ -74,25 +74,6 @@ namespace SimpleOnlineShop.Auth.Controllers
 
                 // Claims will not be associated with specific destinations by default, so we must indicate whether they should
                 // be included or not in access and identity tokens.
-                //                foreach (var claim in principal.Claims)
-                //                {
-                //                    // For this sample, just include all claims in all token types.
-                //                    // In reality, claims' destinations would probably differ by token type and depending on the scopes requested.
-                //                    var destinations = new List<string>
-                //                    {
-                //                        OpenIdConnectConstants.Destinations.AccessToken
-                //                    };
-                //
-                //                    // Only add the iterated claim to the id_token if the corresponding scope was granted to the client application.
-                //                    // The other claims will only be added to the access_token, which is encrypted when using the default format.
-                //                    if (claim.Type == OpenIdConnectConstants.Claims.Name ||
-                //                        claim.Type == OpenIdConnectConstants.Claims.Role)
-                //                    {
-                //                        destinations.Add(OpenIdConnectConstants.Destinations.IdentityToken);
-                //                    }
-                //
-                //                    claim.SetDestinations(destinations);
-                //                }
 
                 var authProperties = new AuthenticationProperties
                 {

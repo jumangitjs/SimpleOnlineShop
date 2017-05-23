@@ -42,12 +42,27 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg.RegexHelper
             }
         }
 
+        // Return true if is a valid username
         public static bool IsValidContactNo(string number)
         {
             try
             {
                 return Regex.IsMatch(number,
                     @"^(\+?\d{1,3})[- ]?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",
+                    RegexOptions.Singleline, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        public static bool IsValidUsername(string username)
+        {
+            try
+            {
+                return Regex.IsMatch(username,
+                    @"^[A-Za-z0-9_]+$",
                     RegexOptions.Singleline, TimeSpan.FromMilliseconds(250));
             }
             catch (RegexMatchTimeoutException)

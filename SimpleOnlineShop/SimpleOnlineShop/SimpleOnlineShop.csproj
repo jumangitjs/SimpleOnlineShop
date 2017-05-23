@@ -13,6 +13,7 @@
       <Version>6.0.2</Version>
     </PackageReference>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />
+    <PackageReference Include="BCrypt.Net-Core" Version="1.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore">
       <Version>1.1.2</Version>
     </PackageReference>
@@ -36,10 +37,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Serilog.Sinks.PostgreSQL\Serilog.Sinks.PostgreSQL.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Serilog.Sinks.PostgreSQL">
-      <HintPath>..\Serilog.Sinks.PostgreSQL\DLL\Serilog.Sinks.PostgreSQL.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>

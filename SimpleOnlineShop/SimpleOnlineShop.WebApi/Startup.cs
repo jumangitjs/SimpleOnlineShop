@@ -140,7 +140,7 @@ namespace SimpleOnlineShop.WebApi
             app.UseJwtBearerAuthentication(new JwtBearerOptions
             {
                 Audience = "onlineshop",
-                Authority = "http://192.168.143.184:5000/",
+                Authority = "http://localhost:5000/",
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true,
                 RequireHttpsMetadata = false,

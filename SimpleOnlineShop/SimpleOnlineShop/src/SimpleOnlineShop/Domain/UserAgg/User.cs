@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal;
 using Newtonsoft.Json;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.AccountAgg;
 using SimpleOnlineShop.SimpleOnlineShop.Domain.AuthEntitiesAgg;
@@ -44,6 +46,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg
         public virtual string LastName { get; private set; }
 
         public virtual string Name => $"{LastName}, {FirstName}";
+        public virtual double GrandTotal => Orders.Sum(o => o.Product.Price);
 
         public virtual Gender Gender { get; protected set; }
 
@@ -94,6 +97,17 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Domain.UserAgg
             Orders.Add(order);
         }
 
+        public virtual double Checkout()
+        {
+            DomainEvent.Raise(new UserCheckout
+            {
+                Orders = Orders,
+                GrandTotal = GrandTotal
+            });
+            Orders = null;
+            return GrandTotal;
+        }
+        
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);

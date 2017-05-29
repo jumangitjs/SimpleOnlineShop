@@ -93,5 +93,16 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
             _orderRepository.Remove(order);
             _orderRepository.UnitOfWork.Commit();
         }
+
+        public double Checkout(long id)
+        {
+            var orders = _userRepository.FindById(id).Orders.AsEnumerable();
+            foreach (var order in orders)
+            {
+                _orderRepository.Remove(order);
+            }
+            _orderRepository.UnitOfWork.Commit();
+            return _userRepository.FindById(id).Checkout();
+        }
     }
 }

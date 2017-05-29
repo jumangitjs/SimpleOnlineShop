@@ -31,7 +31,6 @@
   <ItemGroup>
     <Folder Include="src\SimpleOnlineShop\Domain\AccountAgg" />
     <Folder Include="src\SimpleOnlineShop\Domain\InventoryAgg" />
-    <Folder Include="src\SimpleOnlineShop\Domain\UserAgg\Events" />
     <Folder Include="src\SimpleOnlineShop\Domain\UserAgg\RegexHelper" />
     <Folder Include="src\SimpleOnlineShop\Infrastructure\CrossCutting\Logging" />
   </ItemGroup>

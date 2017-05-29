@@ -28,7 +28,8 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapp
             mapper.ForMember(dto => dto.Email, mc => mc.MapFrom(e => e.Email));
             mapper.ForMember(dto => dto.ContactNo, mc => mc.MapFrom(e => e.ContactNo));
             mapper.ForMember(dto => dto.Orders, mc => mc.MapFrom(e => e.Orders.AsEnumerableData<OrderData>()));
+            mapper.ForMember(dto => dto.GrandTotal, mc => mc.MapFrom(e => e.GrandTotal));
 
-       }
+        }
     }
 }

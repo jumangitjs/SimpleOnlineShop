@@ -96,6 +96,16 @@ namespace SimpleOnlineShop.WebApi.Controllers
             else HttpContext.Response.StatusCode = 403;
         }
 
+        [HttpPut("{id}/checkout")]
+        public double Checkout(long id)
+        {
+            if (CanModifySelf(id) || User.HasClaim("scope", "order.modify"))
+                return _userService.Checkout(id);
+            
+            HttpContext.Response.StatusCode = 403;
+            return 0;
+        }
+
         private bool CanModifySelf(long userId)
         {
             return User.HasClaim("scope", "employee.self") && long.Parse(User.GetClaim("id")) == userId;

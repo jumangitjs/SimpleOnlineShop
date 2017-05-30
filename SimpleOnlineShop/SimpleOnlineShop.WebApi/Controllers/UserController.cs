@@ -19,7 +19,7 @@ namespace SimpleOnlineShop.WebApi.Controllers
             _userService = userService;
         }
 
-        [Authorize("customer.read")]
+//        [Authorize("customer.read")]
         [HttpGet]
         public IEnumerable<IData> GetCustomers()
         {
@@ -29,29 +29,28 @@ namespace SimpleOnlineShop.WebApi.Controllers
         [HttpGet("{id}")]
         public IData GetCustomer(long id)
         {
-            if (CanModifySelf(id) || User.HasClaim("scope", "user.read"))
+//            if (CanModifySelf(id) || User.HasClaim("scope", "user.read"))
                 return _userService.RetriveById(id) != null ? _userService.RetriveById(id) : null;
 
-            HttpContext.Response.StatusCode = 403;
-            return null;
+//            HttpContext.Response.StatusCode = 403;
+//            return null;
         }
 
-        [HttpPut("{id}/email")]
+//        [HttpPut("{id}/email")]
         public void ChangeEmail(long id, [FromBody] UserData data)
         {
-            if (CanModifySelf(id) || User.HasClaim("scope", "user.modify"))
+//            if (CanModifySelf(id) || User.HasClaim("scope", "user.modify"))
                 _userService.ChangeEmail(id, data.Email);
-            else
-                HttpContext.Response.StatusCode = 403;
+
+//            else HttpContext.Response.StatusCode = 403;
         }
 
-        [HttpPut("{id}/contactno")]
+//        [HttpPut("{id}/contactno")]
         public void ChangeContactNo(long id, [FromBody] UserData data)
         {
-            if (CanModifySelf(id) || User.HasClaim("scope", "user.modify"))
+//            if (CanModifySelf(id) || User.HasClaim("scope", "user.modify"))
                 _userService.ChangeEmail(id, data.ContactNo);
-            else
-                HttpContext.Response.StatusCode = 403;
+//            else HttpContext.Response.StatusCode = 403;
         }
         
         //revise, create customer on the instance of creating an accnt
@@ -61,7 +60,7 @@ namespace SimpleOnlineShop.WebApi.Controllers
             return _userService.CreateCustomer(data);
         }
 
-        [Authorize("customer.delete")]
+//        [Authorize("customer.delete")]
         [HttpDelete("{id}")]
         public void DeleteCustomer(long id)
         {
@@ -71,39 +70,39 @@ namespace SimpleOnlineShop.WebApi.Controllers
         [HttpGet("{id}/order")]
         public IEnumerable<OrderData> RetrieveAllOrders(long id)
         {
-            if (CanModifySelf(id) || User.HasClaim("scope", "order.read"))
+//            if (CanModifySelf(id) || User.HasClaim("scope", "order.read"))
                 return _userService.RetrieveAllOrders(id);
-
-            HttpContext.Response.StatusCode = 403;
-            return null;
+//
+//            HttpContext.Response.StatusCode = 403;
+//            return null;
         }   
         
         [HttpPut("{id}/order")]
         public void AddProductToOrder(long id, [FromBody] OrderForm form)
         {
-            if (CanModifySelf(id) || User.HasClaim("scope", "order.modify"))
+//            if (CanModifySelf(id) || User.HasClaim("scope", "order.modify"))
                 _userService.AddProductToOrder(id, form.InventoryName, form.ProductName);
 
-            else HttpContext.Response.StatusCode = 403;
+//            else HttpContext.Response.StatusCode = 403;
         }
 
         [HttpDelete("{id}/order")]
         public void DeleteOrder(long id, [FromBody] OrderForm form)
         {
-            if (CanModifySelf(id) || User.HasClaim("scope", "order.delete"))
+//            if (CanModifySelf(id) || User.HasClaim("scope", "order.delete"))
                 _userService.DeleteOrder(id, form.ProductName);
 
-            else HttpContext.Response.StatusCode = 403;
+//            else HttpContext.Response.StatusCode = 403;
         }
 
         [HttpPut("{id}/checkout")]
         public double Checkout(long id)
         {
-            if (CanModifySelf(id) || User.HasClaim("scope", "order.modify"))
+//            if (CanModifySelf(id) || User.HasClaim("scope", "order.modify"))
                 return _userService.Checkout(id);
             
-            HttpContext.Response.StatusCode = 403;
-            return 0;
+//            HttpContext.Response.StatusCode = 403;
+//            return 0;
         }
 
         private bool CanModifySelf(long userId)

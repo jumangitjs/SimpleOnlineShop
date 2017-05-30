@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Inventory } from '../../../core/models/inventory';
+import { Observable } from 'rxjs/Observable';
+import { InventoryService } from '../../../core/services/inventory.service';
 
 @Component({
   selector: 'app-inventory-page',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryPageComponent implements OnInit {
 
-  constructor() { }
+  selectedInventory: Inventory;
+  inventories$: Observable<Inventory[]>;
+
+  constructor(private service: InventoryService) { }
 
   ngOnInit() {
+    this.inventories$ = this.service.findAll();
   }
-
 }
+

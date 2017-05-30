@@ -5,7 +5,7 @@ using SimpleOnlineShop.SimpleOnlineShop.Application;
 
 namespace SimpleOnlineShop.WebApi.Controllers
 {
-    [Authorize]
+//    [Authorize]
     [Produces("application/json")]
     [Route("api/roles")]
     public class RoleController : ControllerBase
@@ -17,7 +17,7 @@ namespace SimpleOnlineShop.WebApi.Controllers
             _roleService = roleService;
         }
 
-        [Authorize("roles")]
+//        [Authorize("roles")]
         [HttpGet]
         public IEnumerable<IData> GetAllRoles()
         {

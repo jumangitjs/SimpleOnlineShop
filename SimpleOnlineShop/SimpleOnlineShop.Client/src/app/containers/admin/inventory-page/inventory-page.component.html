@@ -1,3 +1,36 @@
-<p>
-  inventory-page works!
-</p>
+<div class="inventory-list">
+  <form>
+    <md-select placeholder="Select Inventory" [(ngModel)]="selectedInventory" name="inventory">
+      <md-option *ngFor="let inventory of inventories$ | async" [value]="inventory">
+        {{inventory.name}}
+      </md-option>
+    </md-select>
+    <div *ngIf="selectedInventory != null" class="table">
+      <md-card>
+        <md-card-content>
+          <table class="table">
+            <thead>
+            <th>Unique Id</th>
+            <th>Date Added</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Description</th>
+            <th>Price</th>
+            </thead>
+            <tbody *ngFor="let product of selectedInventory.inventoryProducts">
+            <tr>
+              <td>{{product.uniqueId}}</td>
+              <td>{{product.dateAdded}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.brand}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.price}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+  </form>
+
+</div>

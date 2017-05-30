@@ -123,33 +123,33 @@ namespace SimpleOnlineShop.WebApi
             JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
 
             // Authenticate users on a separate server
-            app.UseJwtBearerAuthentication(new JwtBearerOptions
-            {
-                Audience = "onlineshop",
-                Authority = "http://localhost:5000/",
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true,
-                RequireHttpsMetadata = false,
-                TokenValidationParameters = new TokenValidationParameters
-                {
-                    NameClaimType = OpenIdConnectConstants.Claims.Name,
-                    RoleClaimType = OpenIdConnectConstants.Claims.Role
-                }
-            });
-
-            app.UseJwtBearerAuthentication(new JwtBearerOptions
-            {
-                Audience = "onlineshop",
-                Authority = "http://localhost:5000/",
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true,
-                RequireHttpsMetadata = false,
-                TokenValidationParameters = new TokenValidationParameters
-                {
-                    NameClaimType = OpenIdConnectConstants.Claims.Name,
-                    RoleClaimType = OpenIdConnectConstants.Claims.Role
-                }
-            });
+//            app.UseJwtBearerAuthentication(new JwtBearerOptions
+//            {
+//                Audience = "onlineshop",
+//                Authority = "http://localhost:5000/",
+//                AutomaticAuthenticate = true,
+//                AutomaticChallenge = true,
+//                RequireHttpsMetadata = false,
+//                TokenValidationParameters = new TokenValidationParameters
+//                {
+//                    NameClaimType = OpenIdConnectConstants.Claims.Name,
+//                    RoleClaimType = OpenIdConnectConstants.Claims.Role
+//                }
+//            });
+//
+//            app.UseJwtBearerAuthentication(new JwtBearerOptions
+//            {
+//                Audience = "onlineshop",
+//                Authority = "http://localhost:5000/",
+//                AutomaticAuthenticate = true,
+//                AutomaticChallenge = true,
+//                RequireHttpsMetadata = false,
+//                TokenValidationParameters = new TokenValidationParameters
+//                {
+//                    NameClaimType = OpenIdConnectConstants.Claims.Name,
+//                    RoleClaimType = OpenIdConnectConstants.Claims.Role
+//                }
+//            });
 
             appLifetime.ApplicationStopped.Register(Log.CloseAndFlush);
 

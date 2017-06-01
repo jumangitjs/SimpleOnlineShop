@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
@@ -20,6 +20,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 
 import 'hammerjs';
 import { InventoryService } from './core/services/inventory.service';
+import {CreateInventoryComponent} from './containers/admin/inventory-page/create-inventory/create-inventory.component';
+import { DeleteInventoryComponent } from './containers/admin/inventory-page/delete-inventory/delete-inventory.component';
 
 const devModules = environment.production ? [] : [
   StoreDevtoolsModule.instrumentOnlyWithExtension(),
@@ -33,7 +35,9 @@ const devModules = environment.production ? [] : [
     InventoryPageComponent,
     OrderPageComponent,
     HomePageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    CreateInventoryComponent,
+    DeleteInventoryComponent
   ],
   imports: [
     // CoreModule,
@@ -41,11 +45,13 @@ const devModules = environment.production ? [] : [
     NoopAnimationsModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
     ...devModules
   ],
   providers: [ InventoryService ],
+  entryComponents: [ CreateInventoryComponent, DeleteInventoryComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

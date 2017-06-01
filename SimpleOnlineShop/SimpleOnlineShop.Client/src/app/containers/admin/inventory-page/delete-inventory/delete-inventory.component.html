@@ -1,0 +1,6 @@
+<h1 md-dialog-title style="text-align: center">Delete</h1>
+<div md-dialog-content>Are you sure you want to delete {{ data.name }} Inventory?</div>
+<div md-dialog-actions>
+  <button md-button (click)="onSubmit()">Yes</button>
+  <button md-button (click)="dialogRef.close()">No</button>
+</div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http, RequestOptions, Headers} from '@angular/http';
 import { Store } from '@ngrx/store';
 
 import { environment } from '../../../environments/environment';
@@ -9,6 +9,9 @@ import { Observable } from 'rxjs/Observable';
 //noinspection TsLint
 @Injectable()
 export class InventoryService {
+
+  headers = new Headers({ 'Content-Type': 'application/json' });
+  options = new RequestOptions({ headers: this.headers });
 
   //add access token for authentication use later on......
 
@@ -23,10 +26,10 @@ export class InventoryService {
   }
 
   create(inventory: Inventory) {
-    this.http.post(environment.resourceServer + 'inventory', {inventory});
+    this.http.post(environment.resourceServer + 'inventory/', inventory, this.options).subscribe(res => console.log(res));
   }
 
   delete(id: number) {
-    this.http.delete(environment.resourceServer + 'inventory/' + id);
+    this.http.delete(environment.resourceServer + 'inventory/' + id).subscribe(res => console.log(res));
   }
 }

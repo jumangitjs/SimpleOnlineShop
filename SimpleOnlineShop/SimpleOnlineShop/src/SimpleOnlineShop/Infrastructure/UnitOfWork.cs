@@ -146,7 +146,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure
                 inventoryProduct.HasKey(ip => ip.Id);
                 inventoryProduct.HasAlternateKey(ip => ip.UniqueId);
 
-                inventoryProduct.Property(ip => ip.TimeAdded).HasColumnName("time_added");
+                inventoryProduct.Property(ip => ip.TimeAdded).HasColumnName("date_added");
                 inventoryProduct.Property(ip => ip.UniqueId).HasColumnName("unique_id");
 
                 inventoryProduct.HasOne(ip => ip.ProductInstance)

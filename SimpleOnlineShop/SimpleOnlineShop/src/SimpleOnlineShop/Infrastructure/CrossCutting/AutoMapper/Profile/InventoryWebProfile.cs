@@ -20,7 +20,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapp
 
             inventoryProductMapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
             inventoryProductMapper.ForMember(dto => dto.UniqueId, mc => mc.MapFrom(e => e.UniqueId));
-            inventoryProductMapper.ForMember(dto => dto.TimeAdded, mc => mc.MapFrom(e => e.TimeAdded));
+            inventoryProductMapper.ForMember(dto => dto.DateAdded, mc => mc.MapFrom(e => e.TimeAdded.ToString("O")));
             inventoryProductMapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
             inventoryProductMapper.ForMember(dto => dto.Name, mc => mc.MapFrom(e => e.ProductInstance.Name));
             inventoryProductMapper.ForMember(dto => dto.Brand, mc => mc.MapFrom(e => e.ProductInstance.Brand));

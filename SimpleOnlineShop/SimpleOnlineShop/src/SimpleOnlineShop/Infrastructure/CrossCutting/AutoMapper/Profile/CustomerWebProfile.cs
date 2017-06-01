@@ -12,7 +12,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapp
             var orderMapper = CreateMap<Order, OrderData>();
 
             orderMapper.ForMember(dto => dto.Id, mc => mc.MapFrom(e => e.Id));
-            orderMapper.ForMember(dto => dto.OrderDate, mc => mc.MapFrom(e => e.OrderDate));
+            orderMapper.ForMember(dto => dto.OrderDate, mc => mc.MapFrom(e => e.OrderDate.ToString("O")));
             orderMapper.ForMember(dto => dto.Name, mc => mc.MapFrom(e => e.Product.Name));
             orderMapper.ForMember(dto => dto.Description, mc => mc.MapFrom(e => e.Product.Description));
             orderMapper.ForMember(dto => dto.Price, mc => mc.MapFrom(e => e.Product.Price));

@@ -86,10 +86,11 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
             _userRepository.UnitOfWork.Commit();
         }
 
-        public void DeleteOrder(long id, string productName)
+        public void DeleteOrder(long id, long productId)
         {
             var order = _userRepository.FindById(id).Orders
-                .FirstOrDefault(o => o.Product.Name == productName);
+                .FirstOrDefault(o => o.Product.Id == productId);
+
             _orderRepository.Remove(order);
             _orderRepository.UnitOfWork.Commit();
         }

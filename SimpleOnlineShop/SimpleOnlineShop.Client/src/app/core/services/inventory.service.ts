@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import { Inventory } from '../models/inventory';
 import { Observable } from 'rxjs/Observable';
+import {InventoryProduct} from '../models/inventory-product';
 
 //noinspection TsLint
 @Injectable()
@@ -26,10 +27,20 @@ export class InventoryService {
   }
 
   create(inventory: Inventory) {
-    this.http.post(environment.resourceServer + 'inventory/', inventory, this.options).subscribe(res => console.log(res));
+    this.http.post(environment.resourceServer + 'inventory/', inventory, this.options)
+      .subscribe(res => console.log(res));
   }
 
   delete(id: number) {
     this.http.delete(environment.resourceServer + 'inventory/' + id).subscribe(res => console.log(res));
+  }
+
+  addInventoryProduct(id: number, inventoryProduct: InventoryProduct) {
+    this.http.put(environment.resourceServer + 'inventory/' + id + '/product', inventoryProduct)
+      .subscribe(res => console.log(res));
+  }
+
+  deleteInventoryProduct(id: number, productId: number) {
+    this.http.delete(environment.resourceServer + 'inventory/' + id + '/product/' + productId, this.options).subscribe();
   }
 }

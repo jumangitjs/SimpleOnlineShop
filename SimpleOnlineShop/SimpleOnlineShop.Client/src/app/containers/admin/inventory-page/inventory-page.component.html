@@ -7,10 +7,13 @@
       </md-option>
     </md-select>
     <!--Create a new inventory-->
-    <a md-mini-fab (click)="createDialog()"><md-icon>add</md-icon></a>
-    <a md-mini-fab (click)="createDialog()" class="fab-Delete-right"
-       *ngIf="selectedInventory"><md-icon>delete</md-icon></a>
-    <a md-mini-fab (click)="createDialog()" class="fab-Delete-right"><md-icon>mode edit</md-icon></a>
+    <a md-mini-fab mdTooltip="Create a new Inventory" mdTooltipPosition="right"
+       (click)="createDialog()"><md-icon>add</md-icon></a>
+
+    <a md-mini-fab (click)="deleteDialog()" class="fab-right-float" mdTooltip="Delete Inventory"
+       mdTooltipPosition="left" *ngIf="selectedInventory" color="warn"><md-icon>delete</md-icon></a>
+    <a md-mini-fab (click)="addProductDialog()" class="fab-right-float" mdTooltip="Add a product"
+       mdTooltipPosition="left" *ngIf="selectedInventory" color="warn"><md-icon>add</md-icon></a>
   </form>
   <!--Inventory products for selected inventory-->
   <div class="display-table" *ngIf="selectedInventory">
@@ -18,22 +21,26 @@
       <md-card-content>
         <table class="table">
           <thead>
-          <th>Unique Id</th>
-          <th>Date Added</th>
           <th>Name</th>
           <th>Brand</th>
           <th>Description</th>
+          <th>Unique Id</th>
+          <th>Date Added</th>
           <th>Price</th>
           </thead>
           <tbody *ngFor="let product of selectedInventory.inventoryProducts">
-          <tr>
-            <td>{{product.uniqueId}}</td>
-            <td>{{product.dateAdded}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.brand}}</td>
-            <td>{{product.description}}</td>
-            <td>{{product.price}}</td>
-          </tr>
+            <tr>
+              <td>{{product.name}}</td>
+              <td>{{product.brand}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.uniqueId}}</td>
+              <td>{{product.dateAdded}}</td>
+              <td>{{product.price}}</td>
+              <td><a md-mini-fab (click)="deleteProductDialog(product.id)" class="fab-right-float"
+                     mdTooltip="Delete Product" mdTooltipPosition="left"
+                     *ngIf="selectedInventory" color="primary" class="md-small">
+                <md-icon class="md-small" >clear</md-icon></a></td>
+            </tr>
           </tbody>
         </table>
       </md-card-content>

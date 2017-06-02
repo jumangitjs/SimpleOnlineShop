@@ -66,10 +66,10 @@ namespace SimpleOnlineShop.WebApi.Controllers
         }
 
 //        [Authorize("inventory.modify")]
-        [HttpDelete("{id}/product")]
-        public void DeleteProductFromInventoryList(long id, [FromBody] InventoryProductData data)
+        [HttpDelete("{id}/product/{productId}")]
+        public void DeleteProductFromInventoryList(long id, long productId)
         {
-            _inventoryService.DeleteInventoryProduct(id, data.Name);
+            _inventoryService.DeleteInventoryProduct(id, productId);
         }
 
         #endregion

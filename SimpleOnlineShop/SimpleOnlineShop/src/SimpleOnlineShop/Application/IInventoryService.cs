@@ -10,7 +10,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application
         void AddProductToInventory(long id, IData data);
 
         void DeleteInventory(long id);
-        void DeleteInventoryProduct(long inventoryId, string productName);
+        void DeleteInventoryProduct(long inventoryId, long productId);
         IEnumerable<IData> RetrieveInventoryProducts(long id);
     }
 }

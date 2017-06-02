@@ -22,6 +22,7 @@ import 'hammerjs';
 import { InventoryService } from './core/services/inventory.service';
 import {CreateInventoryComponent} from './containers/admin/inventory-page/create-inventory/create-inventory.component';
 import { DeleteInventoryComponent } from './containers/admin/inventory-page/delete-inventory/delete-inventory.component';
+import { AddProductComponent } from './containers/admin/inventory-page/add-product/add-product.component';
 
 const devModules = environment.production ? [] : [
   StoreDevtoolsModule.instrumentOnlyWithExtension(),
@@ -37,8 +38,10 @@ const devModules = environment.production ? [] : [
     HomePageComponent,
     LoginPageComponent,
     CreateInventoryComponent,
-    DeleteInventoryComponent
+    DeleteInventoryComponent,
+    AddProductComponent
   ],
+
   imports: [
     // CoreModule,
     BrowserAnimationsModule,
@@ -50,8 +53,13 @@ const devModules = environment.production ? [] : [
     RouterModule.forRoot(routes),
     ...devModules
   ],
+
   providers: [ InventoryService ],
-  entryComponents: [ CreateInventoryComponent, DeleteInventoryComponent ],
+  entryComponents: [
+    CreateInventoryComponent,
+    DeleteInventoryComponent,
+    AddProductComponent ],
   bootstrap: [ AppComponent ]
 })
+
 export class AppModule { }

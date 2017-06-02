@@ -76,10 +76,10 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
             _inventoryRepository.UnitOfWork.Commit();
         }
 
-        public void DeleteInventoryProduct(long inventoryId, string productName)
+        public void DeleteInventoryProduct(long inventoryId, long productId)
         {
             var inventory = _inventoryRepository.FindById(inventoryId);
-            var product = inventory.InventoryProducts.FirstOrDefault(ip => ip.ProductInstance.Name == productName);
+            var product = inventory.InventoryProducts.FirstOrDefault(ip => ip.Id == productId);
 
             _inventoryProductRepository.Remove(product);
             _inventoryProductRepository.UnitOfWork.Commit();

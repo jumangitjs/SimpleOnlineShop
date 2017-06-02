@@ -86,11 +86,11 @@ namespace SimpleOnlineShop.WebApi.Controllers
 //            else HttpContext.Response.StatusCode = 403;
         }
 
-        [HttpDelete("{id}/order")]
-        public void DeleteOrder(long id, [FromBody] OrderForm form)
+        [HttpDelete("{id}/order/{orderId}")]
+        public void DeleteOrder(long id, long orderId)
         {
 //            if (CanModifySelf(id) || User.HasClaim("scope", "order.delete"))
-                _userService.DeleteOrder(id, form.ProductName);
+                _userService.DeleteOrder(id, orderId);
 
 //            else HttpContext.Response.StatusCode = 403;
         }

@@ -1,0 +1,26 @@
+<h1 md-dialog-title>Add a new product to the inventory</h1>
+<form [formGroup]="inventoryProductForm" (ngSubmit)="onSubmit()" novalidate>
+  <md-input-container class="control-input">
+    <input mdInput type="text" placeholder="Unique Id" formControlName="uniqueId">
+    <md-error>Unique Id is required</md-error>
+  </md-input-container>
+  <md-input-container class="control-input">
+    <input mdInput type="text" placeholder="Name" formControlName="name">
+    <md-error>Name is required!</md-error>
+  </md-input-container>
+  <md-input-container class="control-input">
+    <input mdInput type="text" placeholder="Brand" formControlName="brand">
+    <md-error>Brand is required!</md-error>
+  </md-input-container>
+  <md-input-container class="control-input">
+    <input mdInput type="text" placeholder="Description" formControlName="description">
+    <md-error>Description is required and must be at less than 140 characters!</md-error>
+  </md-input-container>
+  <md-input-container class="control-input">
+    <input mdInput type="text" placeholder="Price" formControlName="price">
+    <md-error>Price is required!</md-error>
+  </md-input-container>
+</form>
+<div md-dialog-actions>
+  <button md-button (click)="onSubmit()">Submit</button>
+</div>

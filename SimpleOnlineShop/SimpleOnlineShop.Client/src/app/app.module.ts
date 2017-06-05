@@ -15,6 +15,7 @@ import { LoginPageComponent } from './containers/login-page/login-page.component
 
 import { routes } from './routing/routing.module';
 import { environment } from '../environments/environment';
+import { reducer } from './core/store/reducers';
 import {CoreModule} from './core/core.module';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -23,10 +24,11 @@ import { InventoryService } from './core/services/inventory.service';
 import {CreateInventoryComponent} from './containers/admin/inventory-page/create-inventory/create-inventory.component';
 import { DeleteInventoryComponent } from './containers/admin/inventory-page/delete-inventory/delete-inventory.component';
 import { AddProductComponent } from './containers/admin/inventory-page/add-product/add-product.component';
+import {StoreModule} from '@ngrx/store';
+import {InventoryEffects} from './core/store/effects/inventory';
+import {EffectsModule} from '@ngrx/effects';
 
 const devModules = environment.production ? [] : [
-  StoreDevtoolsModule.instrumentOnlyWithExtension(),
-  MaterialModule
 ];
 
 @NgModule({
@@ -50,8 +52,14 @@ const devModules = environment.production ? [] : [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    // CoreModule,
     RouterModule.forRoot(routes),
-    ...devModules
+    StoreModule.provideStore(reducer), // for now only, transfer to core module later
+    EffectsModule.run(InventoryEffects),
+    // ...devModules,
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    MaterialModule
+    //
   ],
 
   providers: [ InventoryService ],

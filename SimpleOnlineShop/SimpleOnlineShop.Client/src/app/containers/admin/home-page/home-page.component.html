@@ -1,8 +1,8 @@
 <md-toolbar>
   <button md-button [mdMenuTriggerFor]="menu">Menu</button>
   <md-menu #menu="mdMenu">
-    <button md-menu-item routerLink="inventory">Inventory</button>
-    <button md-menu-item routerLink="user">User</button>
+    <button md-menu-item routerLink="inventory" routerLinkActive="active">Inventory</button>
+    <button md-menu-item routerLink="user" routerLinkActive="active">User</button>
   </md-menu>
 </md-toolbar>
 <router-outlet></router-outlet>

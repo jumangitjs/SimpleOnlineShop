@@ -119,8 +119,8 @@ namespace SimpleOnlineShop.WebApi
             });
 
             //insert jwt auth server authentication
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
+//            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+//            JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
 
             // Authenticate users on a separate server
 //            app.UseJwtBearerAuthentication(new JwtBearerOptions

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Http, RequestOptions, Headers} from '@angular/http';
+import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Store } from '@ngrx/store';
 
 import { environment } from '../../../environments/environment';
 import { Inventory } from '../models/inventory';
 import { Observable } from 'rxjs/Observable';
-import {InventoryProduct} from '../models/inventory-product';
+import { InventoryProduct } from '../models/inventory-product';
 
 //noinspection TsLint
 @Injectable()
@@ -19,28 +19,34 @@ export class InventoryService {
   constructor(private http: Http) { }
 
   findAll(): Observable<Inventory[]> {
-    return this.http.get(environment.resourceServer + 'inventory').map(r => r.json());
+    return this.http.get(environment.resourceServer + 'inventory', this.options)
+      .map(r => r.json());
   }
 
   find(id: number): Observable<Inventory> {
-    return this.http.get(environment.resourceServer + 'inventory/' + id).map(r => r.json());
+    return this.http.get(environment.resourceServer + 'inventory/' + id, this.options)
+      .map(r => r.json());
   }
 
-  create(inventory: Inventory) {
-    this.http.post(environment.resourceServer + 'inventory/', inventory, this.options)
-      .subscribe(res => console.log(res));
+  create(inventory: Inventory): Observable<Inventory> {
+    return this.http.post(environment.resourceServer + 'inventory/', inventory, this.options)
+      .map(res => res.text() ? res.json() : {});
+      // .subscribe(res => console.log(res));
   }
 
-  delete(id: number) {
-    this.http.delete(environment.resourceServer + 'inventory/' + id).subscribe(res => console.log(res));
+  delete_(id: number): Observable<Inventory> {
+    return this.http.delete(environment.resourceServer + 'inventory/' + id, this.options)
+      .map(res => res.text() ? res.json() : {});
   }
 
-  addInventoryProduct(id: number, inventoryProduct: InventoryProduct) {
-    this.http.put(environment.resourceServer + 'inventory/' + id + '/product', inventoryProduct)
-      .subscribe(res => console.log(res));
+  addInventoryProduct(id: number, inventoryProduct: InventoryProduct): Observable<Inventory> {
+    return this.http.put(environment.resourceServer + 'inventory/' + id + '/product', inventoryProduct, this.options)
+      .map(res => res.text() ? res.json() : {});
+      // .subscribe(res => console.log(res));
   }
 
-  deleteInventoryProduct(id: number, productId: number) {
-    this.http.delete(environment.resourceServer + 'inventory/' + id + '/product/' + productId, this.options).subscribe();
+  deleteInventoryProduct(id: number, productId: number): Observable<Inventory> {
+    return this.http.delete(environment.resourceServer + 'inventory/' + id + '/product/' + productId, this.options)
+      .map(res => res.text() ? res.json() : {});
   }
 }

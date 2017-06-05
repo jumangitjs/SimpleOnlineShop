@@ -4,6 +4,10 @@ import {InventoryService} from '../../../../core/services/inventory.service';
 import {MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import {Inventory} from '../../../../core/models/inventory';
 import {InventoryProduct} from '../../../../core/models/inventory-product';
+import {Store} from '@ngrx/store';
+
+import * as fromRoot from '../../../../core/store/reducers/index';
+import * as action_ from '../../../../core/store/actions/inventory';
 
 @Component({
   selector: 'app-add-product',
@@ -17,7 +21,8 @@ export class AddProductComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private service: InventoryService,
               public dialogRef: MdDialogRef<AddProductComponent>,
-              @Inject(MD_DIALOG_DATA) private data: Inventory) { }
+              @Inject(MD_DIALOG_DATA) private data: Inventory,
+              public store: Store<fromRoot.State>) { }
 
   ngOnInit() {
     this.inventoryProductForm = this.fb.group({
@@ -31,7 +36,12 @@ export class AddProductComponent implements OnInit {
 
   onSubmit() {
     if (this.inventoryProductForm.valid) {
-      this.service.addInventoryProduct(this.data.id, this.inventoryProductForm.value as InventoryProduct);
+      // this.service.addInventoryProduct(this.data.id, this.inventoryProductForm.value as InventoryProduct);
+      this.store.dispatch(new action_
+        .InventoryAddInventoryProductAction({
+          id: this.data.id,
+          product: this.inventoryProductForm.value as InventoryProduct}
+          ));
       this.dialogRef.close();
     }
   }

@@ -1,4 +1,4 @@
-<h1 md-dialog-title>Add a new product to the inventory</h1>
+<h1 md-dialog-title>Add a new product to the {{data.name}} inventory</h1>
 <form [formGroup]="inventoryProductForm" (ngSubmit)="onSubmit()" novalidate>
   <md-input-container class="control-input">
     <input mdInput type="text" placeholder="Unique Id" formControlName="uniqueId">
@@ -17,7 +17,7 @@
     <md-error>Description is required and must be at less than 140 characters!</md-error>
   </md-input-container>
   <md-input-container class="control-input">
-    <input mdInput type="text" placeholder="Price" formControlName="price">
+    <input mdInput type="number" placeholder="Price" formControlName="price">
     <md-error>Price is required!</md-error>
   </md-input-container>
 </form>

@@ -1,0 +1,13 @@
+1,customer.read,Allow to read all customers
+2,customer.write,Create a new customer data
+3,customer.modify,Modify customer data
+4,customer.delete,Delete customer data
+5,order.read,Read order data
+6,order.write,Write order data
+7,order.modify,Modify order data
+8,order.delete,Delete order data
+9,inventory.read,Inventory read data
+10,inventory.write,Inventory write data
+11,inventory.modify,Inventory modify data
+12,inventory.delete,Inventory delete data
+13,customer.self,Customer self data

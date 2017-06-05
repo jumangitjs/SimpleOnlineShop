@@ -4,6 +4,11 @@ import {InventoryService} from '../../../../core/services/inventory.service';
 import {Inventory} from '../../../../core/models/inventory';
 import {MdDialogRef} from '@angular/material';
 
+import { Store } from '@ngrx/store';
+
+import * as fromRoot from '../../../../core/store/reducers/index';
+import * as action_ from '../../../../core/store/actions/inventory';
+
 @Component({
   selector: 'app-create-inventory',
   templateUrl: './create-inventory.component.html',
@@ -16,7 +21,8 @@ export class CreateInventoryComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private service: InventoryService,
-              public dialogRef: MdDialogRef<CreateInventoryComponent>) { }
+              public dialogRef: MdDialogRef<CreateInventoryComponent>,
+              public store: Store<fromRoot.State>) { }
 
   ngOnInit() {
     this.inventoryCreateForm = this.fb.group({
@@ -27,7 +33,7 @@ export class CreateInventoryComponent implements OnInit {
 
   onSubmit() {
     if (this.inventoryCreateForm.valid) {
-      this.service.create(this.inventoryCreateForm.value as Inventory);
+      this.store.dispatch(new action_.InventoryAddAction(this.inventoryCreateForm.value as Inventory));
       this.dialogRef.close();
     }
   }

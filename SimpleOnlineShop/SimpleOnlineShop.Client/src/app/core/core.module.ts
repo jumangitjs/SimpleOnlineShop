@@ -9,12 +9,6 @@ import { InventoryService } from './services/inventory.service';
   imports: [
     CommonModule
   ],
-  exports: [
-    CommonModule,
-    StoreModule,
-    RouterStoreModule,
-    EffectsModule
-  ],
   providers: [
     InventoryService
   ],

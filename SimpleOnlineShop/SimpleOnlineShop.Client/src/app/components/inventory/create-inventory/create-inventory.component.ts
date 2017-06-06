@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {InventoryService} from '../../../../core/services/inventory.service';
-import {Inventory} from '../../../../core/models/inventory';
+import {Inventory} from '../../../core/models/inventory';
 import {MdDialogRef} from '@angular/material';
 
 import { Store } from '@ngrx/store';
 
-import * as fromRoot from '../../../../core/store/reducers/index';
-import * as action_ from '../../../../core/store/actions/inventory';
+import * as fromRoot from '../../../core/store/reducers/index';
+import * as action_ from '../../../core/store/actions/inventory';
 
 @Component({
   selector: 'app-create-inventory',
@@ -20,7 +19,6 @@ export class CreateInventoryComponent implements OnInit {
   inventoryCreateForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private service: InventoryService,
               public dialogRef: MdDialogRef<CreateInventoryComponent>,
               public store: Store<fromRoot.State>) { }
 
@@ -35,6 +33,10 @@ export class CreateInventoryComponent implements OnInit {
     if (this.inventoryCreateForm.valid) {
       this.store.dispatch(new action_.InventoryAddAction(this.inventoryCreateForm.value as Inventory));
       this.dialogRef.close();
+    } else {
+      Object.keys(this.inventoryCreateForm.controls).map((controlName) => {
+        this.inventoryCreateForm.get(controlName).markAsTouched({onlySelf: true});
+      });
     }
   }
 }

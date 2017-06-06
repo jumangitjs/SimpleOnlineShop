@@ -1,14 +1,14 @@
 <div class="inventory-list">
   <form>
     <!--Inventory Selector-->
-    <md-select placeholder="Select Inventory" [(ngModel)]="selectedInventory" name="inventory">
+    <md-select placeholder="Select Inventory" [(ngModel)]="selectedInventory" name="inventory" color="accent">
       <md-option *ngFor="let inventory of inventories$ | async" [value]="inventory">
         {{inventory.name}}
       </md-option>
     </md-select>
     <!--Create a new inventory-->
     <a md-mini-fab mdTooltip="Create a new Inventory" mdTooltipPosition="right"
-       (click)="createDialog()"><md-icon>add</md-icon></a>
+       (click)="createDialog()" color="primary"><md-icon>add</md-icon></a>
 
     <a md-mini-fab (click)="deleteDialog()" class="fab-right-float" mdTooltip="Delete Inventory"
        mdTooltipPosition="left" *ngIf="selectedInventory" color="warn"><md-icon>delete</md-icon></a>
@@ -19,7 +19,9 @@
   <div class="display-table" *ngIf="selectedInventory">
     <md-card>
       <md-card-content>
-        <table class="table">
+        <div class="row"><h3>{{selectedInventory.name}}</h3></div>
+        <div class="row"><h5>{{selectedInventory.description}}</h5></div>
+        <table class="table row">
           <thead>
           <th>Name</th>
           <th>Brand</th>
@@ -38,8 +40,8 @@
               <td>{{product.price}}</td>
               <td><a md-mini-fab (click)="deleteProductDialog(product.id)" class="fab-right-float"
                      mdTooltip="Delete Product" mdTooltipPosition="left"
-                     *ngIf="selectedInventory" color="primary" class="md-small">
-                <md-icon class="md-small" >clear</md-icon></a></td>
+                     *ngIf="selectedInventory" color="warn" class="md-icon-small">
+                <md-icon class="md-icon-small" >clear</md-icon></a></td>
             </tr>
           </tbody>
         </table>

@@ -1,0 +1,17 @@
+
+* {
+  margin: auto;
+}
+
+.control-input{
+  display: block;
+  margin-top: 1.5rem;
+}
+
+md-input-container{
+  padding: .5rem;
+}
+
+button {
+  margin-top: 1.5rem;
+}

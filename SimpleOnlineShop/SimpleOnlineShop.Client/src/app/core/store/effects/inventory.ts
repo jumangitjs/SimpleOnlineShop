@@ -63,8 +63,24 @@ export class InventoryEffects {
     .map((action: inventory.InventoryAddInventoryProductAction) => action.payload)
     .mergeMap(payload =>
       this.service.addInventoryProduct(payload.id, payload.product)
-        .map(res => new inventory.InventoryAddInventoryProductSuccessAction(res))
+        .map(res => new inventory.InventoryAddInventoryProductSuccessAction({
+          id: payload.id,
+          product: payload.product
+        }))
         .catch(err => of(new inventory.InventoryAddInventoryProductFailureAction(err)))
+    );
+
+  @Effect()
+  deleteProduct$ = this.actions$
+    .ofType(inventory.DELETE_INVENTORY_PRODUCT_TO_INVENTORY)
+    .map((action: inventory.InventoryDeleteInventoryProductAction) => action.payload)
+    .mergeMap(payload =>
+      this.service.deleteInventoryProduct(payload.inventoryId, payload.productId)
+        .map(res => new inventory.InventoryDeleteInventoryProductSuccessAction({
+          inventoryId: payload.inventoryId,
+          productId: payload.productId,
+        }))
+        .catch(err => of(new inventory.InventoryDeleteInventoryProductFailureAction(err)))
     );
 
   constructor(private actions$: Actions,

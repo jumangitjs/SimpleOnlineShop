@@ -111,13 +111,37 @@ export const ADD_INVENTORY_PRODUCT_TO_INVENTORY_SUCCESS = '[Inventory] Add Inven
 export class InventoryAddInventoryProductSuccessAction implements Action {
   readonly type = ADD_INVENTORY_PRODUCT_TO_INVENTORY_SUCCESS;
 
-  constructor(public payload: any) { }
+  constructor(public payload: {product: InventoryProduct, id: number}) { }
 }
 
 export const ADD_INVENTORY_PRODUCT_TO_INVENTORY_FAILURE = '[Inventory] Add Inventory Product to Inventory Failure';
 
 export class InventoryAddInventoryProductFailureAction implements Action {
   readonly type = ADD_INVENTORY_PRODUCT_TO_INVENTORY_FAILURE;
+
+  constructor(public payload: any) { }
+}
+
+export const DELETE_INVENTORY_PRODUCT_TO_INVENTORY = '[Inventory] Delete Inventory Product to Inventory Failure';
+
+export class InventoryDeleteInventoryProductAction implements Action {
+  readonly type = DELETE_INVENTORY_PRODUCT_TO_INVENTORY;
+
+  constructor(public payload: {inventoryId: number, productId: number}) { }
+}
+
+export const DELETE_INVENTORY_PRODUCT_TO_INVENTORY_SUCCESS = '[Inventory] Delete Inventory Product to Inventory Success';
+
+export class InventoryDeleteInventoryProductSuccessAction implements Action {
+  readonly type = DELETE_INVENTORY_PRODUCT_TO_INVENTORY_SUCCESS;
+
+  constructor(public payload: {inventoryId: number, productId: number}) { }
+}
+
+export const DELETE_INVENTORY_PRODUCT_TO_INVENTORY_FAILURE = '[Inventory] Delete Inventory Product to Inventory Failure';
+
+export class InventoryDeleteInventoryProductFailureAction implements Action {
+  readonly type = DELETE_INVENTORY_PRODUCT_TO_INVENTORY_FAILURE;
 
   constructor(public payload: any) { }
 }
@@ -160,6 +184,9 @@ export type Actions
   | InventoryAddInventoryProductAction
   | InventoryAddInventoryProductSuccessAction
   | InventoryAddInventoryProductFailureAction
+  | InventoryDeleteInventoryProductAction
+  | InventoryDeleteInventoryProductSuccessAction
+  | InventoryDeleteInventoryProductFailureAction
   | InventoriesLoadAction
   | InventoriesLoadSuccessAction
   | InventoriesLoadFailureAction;

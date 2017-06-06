@@ -5,7 +5,7 @@ import {AuthGuard} from '../core/guards/auth.guard';
 import {InventoryPageComponent} from '../containers/admin/inventory-page/inventory-page.component';
 import {UserPageComponent} from '../containers/admin/user-page/user-page.component';
 import {LoginPageComponent} from '../containers/login-page/login-page.component';
-import {OrderPageComponent} from '../containers/admin/order-page/order-page.component';
+import {UserDetailComponent} from '../components/user/user-detail/user-detail.component';
 
 export const routes: Routes = [
   {
@@ -18,13 +18,15 @@ export const routes: Routes = [
         component: InventoryPageComponent
       },
       {
-        path: 'order',
-        component: OrderPageComponent
-      },
-      {
         path: 'user',
-        component: UserPageComponent
-      }
+        component: UserPageComponent,
+        children: [
+          {
+            path: ':id',
+            component: UserDetailComponent
+          },
+        ]
+      },
     ]
   },
   {

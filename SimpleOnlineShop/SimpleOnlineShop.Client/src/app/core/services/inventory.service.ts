@@ -24,7 +24,7 @@ export class InventoryService {
   }
 
   find(id: number): Observable<Inventory> {
-    return this.http.get(environment.resourceServer + 'inventory/' + id, this.options)
+    return this.http.get(environment.resourceServer + `inventory/${id}`, this.options)
       .map(r => r.json());
   }
 
@@ -35,18 +35,18 @@ export class InventoryService {
   }
 
   delete_(id: number): Observable<Inventory> {
-    return this.http.delete(environment.resourceServer + 'inventory/' + id, this.options)
+    return this.http.delete(environment.resourceServer + `inventory/${id}`, this.options)
       .map(res => res.text() ? res.json() : {});
   }
 
   addInventoryProduct(id: number, inventoryProduct: InventoryProduct): Observable<Inventory> {
-    return this.http.put(environment.resourceServer + 'inventory/' + id + '/product', inventoryProduct, this.options)
+    return this.http.put(environment.resourceServer + `inventory/${id}/product`, inventoryProduct, this.options)
       .map(res => res.text() ? res.json() : {});
       // .subscribe(res => console.log(res));
   }
 
   deleteInventoryProduct(id: number, productId: number): Observable<Inventory> {
-    return this.http.delete(environment.resourceServer + 'inventory/' + id + '/product/' + productId, this.options)
+    return this.http.delete(environment.resourceServer + `inventory/${id}/product/${productId}`, this.options)
       .map(res => res.text() ? res.json() : {});
   }
 }

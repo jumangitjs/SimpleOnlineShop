@@ -52,6 +52,11 @@ export function reducer(state = initialState, action: fromInventory.Actions) {
         inventory: action.payload
       });
 
+    case fromInventory.DELETE_INVENTORY_PRODUCT_TO_INVENTORY_SUCCESS:
+      return Object.assign({}, state, {
+        inventory: action.payload
+      });
+
     default:
       return state;
   }

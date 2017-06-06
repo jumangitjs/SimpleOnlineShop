@@ -1,11 +1,12 @@
 <h1 md-dialog-title>Create a new inventory</h1>
-  <form [formGroup]="inventoryCreateForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="inventoryCreateForm" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()" novalidate>
     <md-input-container class="control-input">
       <input mdInput type="text" placeholder="Name" formControlName="name">
       <md-error>Name is required and must be at least 3 characters!</md-error>
     </md-input-container>
     <md-input-container class="control-input">
-      <input mdInput type="text" placeholder="Description" formControlName="description">
+      <textarea mdInput type="text" placeholder="Description" formControlName="description">
+      </textarea>
       <md-error>Description is required and must be at less than 140 characters!</md-error>
     </md-input-container>
   </form>

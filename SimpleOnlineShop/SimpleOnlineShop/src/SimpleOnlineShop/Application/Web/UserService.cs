@@ -52,15 +52,15 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Application.Web
         public User CreateCustomer(IData customerData)
         {
             var userDto = customerData as UserData;
-            var gender = (Gender) Enum.Parse(typeof(Gender), userDto.Gender.ToLower());
+            var gender = (Gender) Enum.Parse(typeof(Gender), userDto?.Gender.ToLower());
 
             var user = User.Create(
-                userDto.FirstName,
-                userDto.LastName,
+                userDto?.FirstName,
+                userDto?.LastName,
                 gender,
-                userDto.Address,
-                userDto.Email,
-                userDto.ContactNo);     
+                userDto?.Address,
+                userDto?.Email,
+                userDto?.ContactNo);     
 
             _userRepository.Add(user);
             _userRepository.UnitOfWork.Commit();

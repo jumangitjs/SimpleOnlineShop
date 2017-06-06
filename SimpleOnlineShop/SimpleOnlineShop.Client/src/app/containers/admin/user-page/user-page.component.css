@@ -1,0 +1,25 @@
+* {
+  margin: auto;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+md-card {
+  width: 25rem;
+  height: 20rem;
+  display: inline-block;
+  margin: 50px 25px 50px 25px;
+  text-align: left;
+}
+
+.md-container {
+  width: 300px;
+  margin: auto;
+}
+
+md-input-container {
+  width: 250px;
+}

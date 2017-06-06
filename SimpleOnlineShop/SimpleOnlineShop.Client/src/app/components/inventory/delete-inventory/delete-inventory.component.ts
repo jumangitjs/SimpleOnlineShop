@@ -1,11 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { InventoryService } from '../../../../core/services/inventory.service';
-import { Inventory } from '../../../../core/models/inventory';
+import { Inventory } from '../../../core/models/inventory';
 import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { Store } from '@ngrx/store';
 
-import * as fromRoot from '../../../../core/store/reducers/index';
-import * as action_ from '../../../../core/store/actions/inventory';
+import * as fromRoot from '../../../core/store/reducers/index';
+import * as action_ from '../../../core/store/actions/inventory';
 
 @Component({
   selector: 'app-delete-inventory',
@@ -14,8 +13,7 @@ import * as action_ from '../../../../core/store/actions/inventory';
 })
 export class DeleteInventoryComponent implements OnInit {
 
-  constructor(private service: InventoryService,
-              private dialogRef: MdDialogRef<DeleteInventoryComponent>,
+  constructor(private dialogRef: MdDialogRef<DeleteInventoryComponent>,
               @Inject(MD_DIALOG_DATA) private data: Inventory,
               private store: Store<fromRoot.State>) { }
 

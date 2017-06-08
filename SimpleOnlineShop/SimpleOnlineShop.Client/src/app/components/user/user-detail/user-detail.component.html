@@ -1,3 +1,29 @@
-<p>
-  user-detail works!
-</p>
+<button md-fab color="primary" (click)="goBack()" class="row btn-back">
+  <md-icon>arrow_back</md-icon>
+</button>
+
+<div *ngIf="user" class="row">
+  <md-card>
+    <md-card-header>
+      <h4>{{user.lastName}}, {{user.firstName}}</h4>
+    </md-card-header>
+    <md-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+      <table>
+        <thead>
+          <th>orders!</th>
+        </thead>
+        <tbody>
+          <td>here!</td>
+        </tbody>
+      </table>
+    </md-card-content>
+    <md-card-actions align="end">
+      <button md-raised-button (click)="deleteUser()" color="warn">Delete</button>
+    </md-card-actions>
+  </md-card>
+</div>

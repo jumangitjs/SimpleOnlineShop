@@ -23,12 +23,12 @@ import { InventoryService } from './core/services/inventory.service';
 import {CreateInventoryComponent} from './components/inventory/create-inventory/create-inventory.component';
 import { DeleteInventoryComponent } from './components/inventory/delete-inventory/delete-inventory.component';
 import { AddProductComponent } from './components/inventory/add-product/add-product.component';
-import {StoreModule} from '@ngrx/store';
-import {InventoryEffects} from './core/store/effects/inventory';
-import {EffectsModule} from '@ngrx/effects';
-import {RouterStoreModule} from '@ngrx/router-store';
-import {UserEffects} from './core/store/effects/user';
-import {UserService} from './core/services/user.service';
+import { StoreModule } from '@ngrx/store';
+import { InventoryEffects } from './core/store/effects/inventory';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterStoreModule } from '@ngrx/router-store';
+import { UserEffects } from './core/store/effects/user';
+import { UserService } from './core/services/user.service';
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
 
 const devModules = environment.production ? [] : [

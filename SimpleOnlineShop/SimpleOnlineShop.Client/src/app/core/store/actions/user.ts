@@ -5,6 +5,8 @@ export const LOAD_USER = '[User] Load User';
 
 export class UserLoadAction implements Action {
   readonly type = LOAD_USER;
+
+  constructor(public payload: number) { }
 }
 
 export const LOAD_USER_SUCCESS = '[Action] Load User Success';

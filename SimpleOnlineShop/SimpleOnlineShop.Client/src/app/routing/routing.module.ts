@@ -20,12 +20,10 @@ export const routes: Routes = [
       {
         path: 'user',
         component: UserPageComponent,
-        children: [
-          {
-            path: ':id',
-            component: UserDetailComponent
-          },
-        ]
+      },
+      {
+        path: 'user/:id',
+        component: UserDetailComponent
       },
     ]
   },

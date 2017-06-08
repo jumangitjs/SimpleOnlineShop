@@ -15,16 +15,19 @@ export const initialState: State = {
 
 export function reducer(state = initialState, action: fromUser.Actions) {
   switch (action.type) {
+
     case fromUser.LOAD_USER:
       return Object.assign({}, state, {
         loading: true
       });
+
     case fromUser.LOAD_USER_SUCCESS:
       return {
         loading: false,
         loaded: true,
-        fromUser: action.payload
+        user: action.payload
       };
+
     case fromUser.LOAD_USER_FAILURE:
       return Object.assign({}, state, {
         loading: false
@@ -32,17 +35,17 @@ export function reducer(state = initialState, action: fromUser.Actions) {
 
     case fromUser.ADD_USER_SUCCESS:
       return Object.assign({}, state, {
-        fromUser: action.payload
+        user: action.payload
       });
 
     case fromUser.DELETE_USER_SUCCESS:
       return Object.assign({}, state, {
-        fromUser: action.payload
+        user: action.payload
       });
 
     case fromUser.MODIFY_USER_SUCCESS:
       return Object.assign({}, state, {
-        fromUser: action.payload
+        user: action.payload
       });
 
     default:

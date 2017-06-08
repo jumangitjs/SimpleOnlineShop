@@ -1,4 +1,12 @@
-<div class="inventory-list">
+<md-progress-spinner
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  value="0"
+  *ngIf="!(inventories$ | async)">
+</md-progress-spinner>
+
+<div class="inventory-list" *ngIf="inventories$ | async">
   <form>
     <!--Inventory Selector-->
     <md-select placeholder="Select Inventory" [(ngModel)]="selectedInventory" name="inventory" color="accent">

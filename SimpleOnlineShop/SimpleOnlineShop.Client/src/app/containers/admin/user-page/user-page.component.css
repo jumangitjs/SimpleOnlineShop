@@ -15,6 +15,10 @@ md-card {
   text-align: left;
 }
 
+.customer-list {
+  padding: 0;
+}
+
 .md-container {
   width: 300px;
   margin: auto;

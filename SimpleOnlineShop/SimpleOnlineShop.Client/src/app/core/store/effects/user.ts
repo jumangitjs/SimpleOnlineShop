@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect } from '@ngrx/effects';
+import {Actions, Effect, toPayload } from '@ngrx/effects';
 import { UserService } from '../../services/user.service';
 
 import 'rxjs/add/operator/map';
@@ -16,13 +16,15 @@ import {of} from 'rxjs/observable/of';
 @Injectable()
 export class UserEffects {
 
-  // @Effect()
-  // loadUser$ = this.action$
-  //   .ofType(user.LOAD_USER)
-  //   .startWith(new user.UserLoadAction())
-  //   .switchMap(() => {
-  //     this.service.
-  //   })
+  @Effect()
+  loadUser$ = this.action$
+    .ofType(user.LOAD_USER)
+    .map(toPayload)
+    .switchMap(id =>
+      this.service.find(id)
+        .map(res => new user.UserLoadSuccessAction(res))
+        .catch(err => of(new user.UserLoadFailureAction(err)))
+    );
 
   @Effect()
   loadUsers$: Observable<Action> = this.action$

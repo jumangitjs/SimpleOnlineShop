@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy, ViewChild, AfterViewInit} from '@angular/core';
 import { Inventory } from '../../../core/models/inventory';
 import { Observable } from 'rxjs/Observable';
 
-import { MdDialog } from '@angular/material';
+import {MdDialog, MdSelect} from '@angular/material';
 import { CreateInventoryComponent } from '../../../components/inventory/create-inventory/create-inventory.component';
 import { DeleteInventoryComponent } from '../../../components/inventory/delete-inventory/delete-inventory.component';
 import { AddProductComponent } from '../../../components/inventory/add-product/add-product.component';
@@ -21,8 +21,8 @@ import delay from 'delay';
 
 export class InventoryPageComponent implements OnInit {
 
-  selectedInventory: Inventory;
   inventories$: Observable<Inventory[]>;
+  selectedInventory: Inventory;
 
   constructor(private dialogCreate: MdDialog,
               private dialogDelete: MdDialog,
@@ -71,16 +71,15 @@ export class InventoryPageComponent implements OnInit {
     this.dialogAddProduct.afterAllClosed
       .debounceTime(200)
       .subscribe(() => {
-        this.store.dispatch(new action_.InventoriesLoadAction());
-        this.selectedInventory = null;
+        this.store.dispatch(new action_.InventoryLoadAction(this.selectedInventory.id));
       });
   }
 
   deleteProductDialog(productId: number) {
     this.store.dispatch(new action_.InventoryDeleteInventoryProductAction({inventoryId: this.selectedInventory.id, productId: productId}));
     delay(200, {}).then(() => {
-      this.store.dispatch(new action_.InventoriesLoadAction());
-      this.selectedInventory = null;
+      this.store.dispatch(new action_.InventoryLoadAction(this.selectedInventory.id));
+      this.store.select(fromRoot.inventory).subscribe(res => this.selectedInventory = res);
       }
     );
   }

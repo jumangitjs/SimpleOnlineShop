@@ -1,0 +1,11 @@
+* {
+  margin: auto;
+}
+
+md-card {
+  width: 50%;
+}
+
+.btn-back {
+  margin-left: 1.3rem;
+}

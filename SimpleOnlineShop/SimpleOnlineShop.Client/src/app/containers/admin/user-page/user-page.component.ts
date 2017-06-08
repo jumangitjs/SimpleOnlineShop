@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { User } from '../../../core/models/user';
@@ -16,6 +16,7 @@ import delay from 'delay';
 export class UserPageComponent implements OnInit {
   users$: Observable<User[]>;
   path: boolean;
+  @Input() user: User;
 
   constructor(private store: Store<fromRoot.State>) { }
 
@@ -26,5 +27,4 @@ export class UserPageComponent implements OnInit {
     this.store.select(fromRoot.routerState).subscribe(res =>
       this.path = (res.path.toString() === '/home/user'));
   }
-
 }

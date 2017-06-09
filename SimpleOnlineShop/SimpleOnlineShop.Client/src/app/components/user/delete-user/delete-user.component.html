@@ -1,3 +1,6 @@
-<p>
-  delete-user works!
-</p>
+<h1 md-dialog-title style="text-align: center">Delete</h1>
+<p md-dialog-content style="text-align: center;">Are you sure you want to delete {{ (user$ | async).name }}</p>
+<div md-dialog-actions>
+  <button md-button (click)="onSubmit()">Yes</button>
+  <button md-button (click)="dialogRef.close()">No</button>
+</div>

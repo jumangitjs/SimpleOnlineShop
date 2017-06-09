@@ -28,6 +28,16 @@ export class UserEffects {
     );
 
   @Effect()
+  deleteUser$ = this.action$
+    .ofType(user.DELETE_USER)
+    .map(toPayload)
+    .switchMap(id =>
+      this.service.delete(id)
+        .map(res => new user.UserDeleteSuccessAction(res))
+        .catch(err => of(new user.UserDeleteFailureAction(err)))
+    );
+
+  @Effect()
   loadUsers$: Observable<Action> = this.action$
     .ofType(user.LOAD_USERS)
     .startWith(new user.UsersLoadAction())

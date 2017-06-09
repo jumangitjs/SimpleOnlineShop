@@ -22,9 +22,9 @@ import {AddOrderComponent} from '../add-order/add-order.component';
 })
 
 export class UserDetailComponent implements OnInit {
-  user: User;
   location: Location;
   loading$: Observable<boolean>;
+  user$: Observable<User>;
 
   constructor(private store: Store<fromRoot.State>,
               private route: ActivatedRoute,
@@ -40,7 +40,7 @@ export class UserDetailComponent implements OnInit {
       .subscribe();
 
     this.loading$ = this.store.select(fromRoot.isUserLoading);
-    this.store.select(fromRoot.user).subscribe(res =>  this.user = res);
+    this.user$ = this.store.select(fromRoot.user);
   }
 
   goBack() {
@@ -52,15 +52,18 @@ export class UserDetailComponent implements OnInit {
     this.mdDelete.open(DeleteUserComponent, {
       width: '400px',
       height: '150px',
-      data: this.user
     });
+    this.mdDelete.afterAllClosed
+      .debounceTime(200)
+      .subscribe(() => {
+        this.store.dispatch(new action_.UsersLoadAction());
+        this.goBack();
+      });
   }
-
   addOrder() {
     this.mdDelete.open(AddOrderComponent, {
       width: '400px',
       height: '500px',
-      data: this.user
     });
   }
 }

@@ -12,10 +12,10 @@
   *ngIf="(loading$ | async)">
 </md-progress-spinner>
 
-<div *ngIf="user && !(loading$ | async)">
+<div *ngIf="!(loading$ | async)">
   <md-card color="primary">
     <md-card-header>
-      <h3>{{user.lastName}}, {{user.firstName}}</h3>
+      <h3>{{(user$ | async).lastName}}, {{(user$ | async).firstName}}</h3>
     </md-card-header>
     <md-card-content>
       <div class="order-list">
@@ -34,7 +34,7 @@
           <th>Order Date</th>
           <th>Price</th>
           </thead>
-          <tbody *ngFor="let order of user.orders">
+          <tbody *ngFor="let order of (user$ | async).orders">
           <td>{{order.name}}</td>
           <td>{{order.brand}}</td>
           <td>{{order.description}}</td>

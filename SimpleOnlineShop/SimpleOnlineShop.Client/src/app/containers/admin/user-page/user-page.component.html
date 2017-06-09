@@ -2,17 +2,23 @@
   <button md-fab (click)="create()" color="primary"><md-icon>add</md-icon></button>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="stretch center" *ngIf="path" class="user-cards">
+<md-progress-spinner
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  value="0"
+  *ngIf="(loading$ | async)">
+</md-progress-spinner>
+
+<div fxLayout="row" fxLayoutAlign="stretch center" *ngIf="path && !(loading$ | async)" class="user-cards">
   <div *ngFor="let user of users$ | async" style="display: inline;" class="div-card">
     <a md-button color="primary" routerLink="{{user.id}}"
        routerLinkActive="active" class="a-link">
       <md-card>
-        <div>
-          <md-card-header>
-            <div md-card-avatar class="example-header-image"></div>
-            <h5>{{user.name}}</h5>
-          </md-card-header>
-        </div>
+        <md-card-header>
+          <div md-card-avatar class="example-header-image"></div>
+          <h5>{{user.name}}</h5>
+        </md-card-header>
       </md-card>
     </a>
   </div>

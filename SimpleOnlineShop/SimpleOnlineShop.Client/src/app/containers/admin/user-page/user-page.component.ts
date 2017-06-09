@@ -19,7 +19,6 @@ import {DeleteUserComponent} from '../../../components/user/delete-user/delete-u
 export class UserPageComponent implements OnInit {
   users$: Observable<User[]>;
   path: boolean;
-  @Input() user: User;
 
   constructor(private store: Store<fromRoot.State>,
               private mdCreate: MdDialog,

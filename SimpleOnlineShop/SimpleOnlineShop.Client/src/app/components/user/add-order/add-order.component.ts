@@ -1,9 +1,8 @@
 import {Component, OnInit, Inject} from '@angular/core';
 
 import * as fromRoot from '../../../core/store/reducers/index';
-import * as action_ from '../../../core/store/actions/user';
+import * as actionInventory from '../../../core/store/actions/inventory';
 import {Store} from '@ngrx/store';
-import {FormBuilder} from '@angular/forms';
 import {User} from '../../../core/models/user';
 import {Observable} from 'rxjs/Observable';
 import {Inventory} from '../../../core/models/inventory';
@@ -14,13 +13,14 @@ import {Inventory} from '../../../core/models/inventory';
   styleUrls: ['./add-order.component.css']
 })
 export class AddOrderComponent implements OnInit {
+
   user$: Observable<User>;
   inventories$: Observable<Inventory[]>;
 
-  constructor(private store: Store<fromRoot.State>,
-              private fb: FormBuilder) { }
+  constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
+    this.store.dispatch(new actionInventory.InventoriesLoadAction());
     this.user$ = this.store.select(fromRoot.user);
     this.inventories$ = this.store.select(fromRoot.inventories);
   }

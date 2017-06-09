@@ -54,7 +54,7 @@ export const DELETE_USER = '[User] Delete User';
 export class UserDeleteAction implements Action {
   readonly type = DELETE_USER;
 
-  constructor(public payload: User) { }
+  constructor(public payload: number) { }
 }
 
 export const DELETE_USER_SUCCESS = '[User] Delete User Success';

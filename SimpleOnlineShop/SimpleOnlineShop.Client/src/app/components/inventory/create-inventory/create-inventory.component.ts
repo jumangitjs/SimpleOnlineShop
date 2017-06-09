@@ -19,8 +19,8 @@ export class CreateInventoryComponent implements OnInit {
   inventoryCreateForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              public dialogRef: MdDialogRef<CreateInventoryComponent>,
-              public store: Store<fromRoot.State>) { }
+              private dialogRef: MdDialogRef<CreateInventoryComponent>,
+              private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
     this.inventoryCreateForm = this.fb.group({

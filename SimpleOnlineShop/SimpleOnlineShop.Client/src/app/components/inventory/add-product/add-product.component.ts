@@ -18,9 +18,9 @@ export class AddProductComponent implements OnInit {
   inventoryProductForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              public dialogRef: MdDialogRef<AddProductComponent>,
+              private dialogRef: MdDialogRef<AddProductComponent>,
               @Inject(MD_DIALOG_DATA) private data: Inventory,
-              public store: Store<fromRoot.State>) { }
+              private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
     this.inventoryProductForm = this.fb.group({

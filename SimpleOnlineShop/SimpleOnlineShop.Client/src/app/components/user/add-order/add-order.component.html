@@ -1,0 +1,23 @@
+<div class="md-select row">
+  <md-select placeholder="Select Inventory" [(ngModel)]="selectedInventory"
+             name="inventory" color="accent">
+    <md-option *ngFor="let inventory of inventories$ | async" [value]="inventory">
+      {{inventory.name}}
+    </md-option>
+  </md-select>
+</div>
+<div class="div-prodlist" *ngIf="selectedInventory">
+  <md-card *ngFor="let product of selectedInventory.inventoryProducts">
+    <img src="../../../../assets/Doge.jpg">
+    <md-card-content>
+      <div class="md-card-content">
+        <p>{{product.name}}</p>
+        <p>{{product.description}}</p>
+        <p>{{product.price}}</p>
+      </div>
+    </md-card-content>
+    <md-card-actions align="end">
+      <button md-raised-button color="primary" (click)="add()">BOOP!</button>
+    </md-card-actions>
+  </md-card>
+</div>

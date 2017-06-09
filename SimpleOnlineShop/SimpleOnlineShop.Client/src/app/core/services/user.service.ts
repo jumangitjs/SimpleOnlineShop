@@ -35,17 +35,17 @@ export class UserService {
   }
 
   changeEmail(id: number, email: string): Observable<User> {
-    return this.http.put(environment.resourceServer + `customer/${id}/email`, email, this.options)
+    return this.http.put(environment.resourceServer + `customer/${id}/email`, {email: email}, this.options)
       .map(res => res.text() ? res.json() : {});
   }
 
   changeContactNo(id: number, contactNo: string): Observable<User> {
-    return this.http.put(environment.resourceServer + `customer/${id}/contactNo`, contactNo, this.options)
+    return this.http.put(environment.resourceServer + `customer/${id}/contactNo`, {contactNo: contactNo}, this.options)
       .map(res => res.text() ? res.json() : {});
   }
 
-  addOrder(id: number, orderForm: OrderForm): Observable<User> {
-    return this.http.put(environment.resourceServer + `customer/${id}/order`, orderForm, this.options)
+  addOrder(orderForm: OrderForm): Observable<User> {
+    return this.http.put(environment.resourceServer + `customer/${orderForm.userId}/order`, orderForm, this.options)
       .map(res => res.text() ? res.json() : {});
   }
 
@@ -55,7 +55,7 @@ export class UserService {
   }
 
   checkout(id: number): Observable<User> {
-    return this.http.put(environment.resourceServer + `customer/${id}/checkout`, null, this.options)
+    return this.http.put(environment.resourceServer + `customer/${id}/checkout`, this.options)
       .map(res => res.text() ? res.json() : {});
   }
 }

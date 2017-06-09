@@ -2,7 +2,7 @@ import {Component, OnInit, ChangeDetectionStrategy, ViewChild, AfterViewInit} fr
 import { Inventory } from '../../../core/models/inventory';
 import { Observable } from 'rxjs/Observable';
 
-import {MdDialog, MdSelect} from '@angular/material';
+import {MdDialog} from '@angular/material';
 import { CreateInventoryComponent } from '../../../components/inventory/create-inventory/create-inventory.component';
 import { DeleteInventoryComponent } from '../../../components/inventory/delete-inventory/delete-inventory.component';
 import { AddProductComponent } from '../../../components/inventory/add-product/add-product.component';
@@ -22,7 +22,12 @@ import delay from 'delay';
 export class InventoryPageComponent implements OnInit {
 
   inventories$: Observable<Inventory[]>;
+
   selectedInventory: Inventory;
+  selectedInventory$: Observable<Inventory>;
+
+  selectedInventoryId: number;
+  loading$: Observable<boolean>;
 
   constructor(private dialogCreate: MdDialog,
               private dialogDelete: MdDialog,
@@ -33,6 +38,7 @@ export class InventoryPageComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new action_.InventoriesLoadAction());
     this.inventories$ = this.store.select(fromRoot.inventories);
+    this.loading$ = this.store.select(fromRoot.isInventoryLoading);
   }
 //noinspection TsLint
   createDialog() {
@@ -58,7 +64,6 @@ export class InventoryPageComponent implements OnInit {
       .debounceTime(200)
       .subscribe(() => {
         this.store.dispatch(new action_.InventoriesLoadAction());
-        this.selectedInventory = null;
       });
   }
 
@@ -71,16 +76,21 @@ export class InventoryPageComponent implements OnInit {
     this.dialogAddProduct.afterAllClosed
       .debounceTime(200)
       .subscribe(() => {
-        this.store.dispatch(new action_.InventoryLoadAction(this.selectedInventory.id));
+        this.store.dispatch(new action_.InventoryLoadAction(this.selectedInventoryId));
       });
   }
 
   deleteProductDialog(productId: number) {
-    this.store.dispatch(new action_.InventoryDeleteInventoryProductAction({inventoryId: this.selectedInventory.id, productId: productId}));
+    this.store.dispatch(new action_.InventoryDeleteInventoryProductAction({inventoryId: this.selectedInventoryId, productId: productId}));
     delay(200, {}).then(() => {
-      this.store.dispatch(new action_.InventoryLoadAction(this.selectedInventory.id));
+      this.store.dispatch(new action_.InventoryLoadAction(this.selectedInventoryId));
       this.store.select(fromRoot.inventory).subscribe(res => this.selectedInventory = res);
-      }
-    );
+    });
+  }
+
+  onChange() {
+    this.store.dispatch(new action_.InventoryLoadAction(this.selectedInventoryId));
+    this.selectedInventory$ = this.store.select(fromRoot.inventory);
+    this.selectedInventory$.subscribe(res => this.selectedInventory = res);
   }
 }

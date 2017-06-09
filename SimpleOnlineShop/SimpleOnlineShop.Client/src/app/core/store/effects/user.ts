@@ -20,6 +20,7 @@ export class UserEffects {
   loadUser$ = this.action$
     .ofType(user.LOAD_USER)
     .map(toPayload)
+    .debounceTime(200)
     .switchMap(id =>
       this.service.find(id)
         .map(res => new user.UserLoadSuccessAction(res))

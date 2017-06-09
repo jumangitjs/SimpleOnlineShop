@@ -1,18 +1,18 @@
-<div class="customer-list" *ngIf="path">
-  <div class="md-container">
-    <md-input-container>
-      <input mdInput type="text" placeholder="Search">
-    </md-input-container>
-    <md-icon>search</md-icon>
-  </div>
-  <div class="row">
-    <a md-button *ngFor="let user of users$ | async" color="primary" routerLink="{{user.id}}"
-       routerLinkActive="active">
+<div class="row fab-add">
+  <button md-fab (click)="create()" color="primary"><md-icon>add</md-icon></button>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="stretch center" *ngIf="path" class="user-cards">
+  <div *ngFor="let user of users$ | async" style="display: inline;" class="div-card">
+    <a md-button color="primary" routerLink="{{user.id}}"
+       routerLinkActive="active" class="a-link">
       <md-card>
-        <md-card-header>
-          <h5>{{user.name}}</h5>
-          <h6>{{user.id}}</h6>
-        </md-card-header>
+        <div>
+          <md-card-header>
+            <div md-card-avatar class="example-header-image"></div>
+            <h5>{{user.name}}</h5>
+          </md-card-header>
+        </div>
       </md-card>
     </a>
   </div>

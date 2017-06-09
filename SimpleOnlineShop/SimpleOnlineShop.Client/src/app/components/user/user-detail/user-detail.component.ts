@@ -10,6 +10,10 @@ import '@ngrx/core/add/operator/select';
 import 'rxjs/add/operator/map';
 
 import { Location } from '@angular/common';
+import {Observable} from 'rxjs/Observable';
+import {MdDialog} from '@angular/material';
+import {DeleteUserComponent} from '../delete-user/delete-user.component';
+import {AddOrderComponent} from '../add-order/add-order.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -20,10 +24,13 @@ import { Location } from '@angular/common';
 export class UserDetailComponent implements OnInit {
   user: User;
   location: Location;
+  loading$: Observable<boolean>;
 
   constructor(private store: Store<fromRoot.State>,
               private route: ActivatedRoute,
-              private location$: Location) { this.location = location$; }
+              private location$: Location,
+              private mdDelete: MdDialog,
+              private mdOrder: MdDialog) { this.location = location$; }
 
   ngOnInit() {
     this.route.params
@@ -32,7 +39,8 @@ export class UserDetailComponent implements OnInit {
         .UserLoadAction(parseInt(id, 10))))
       .subscribe();
 
-   this.store.select(fromRoot.user).subscribe(res =>  this.user = res);
+    this.loading$ = this.store.select(fromRoot.isUserLoading);
+    this.store.select(fromRoot.user).subscribe(res =>  this.user = res);
   }
 
   goBack() {
@@ -41,6 +49,18 @@ export class UserDetailComponent implements OnInit {
 
   deleteUser() {
     console.log('delete works!');
+    this.mdDelete.open(DeleteUserComponent, {
+      width: '400px',
+      height: '150px',
+      data: this.user
+    });
   }
 
+  addOrder() {
+    this.mdDelete.open(AddOrderComponent, {
+      width: '400px',
+      height: '500px',
+      data: this.user
+    });
+  }
 }

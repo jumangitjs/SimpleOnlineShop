@@ -15,12 +15,12 @@ import { LoginPageComponent } from './containers/login-page/login-page.component
 import { routes } from './routing/routing.module';
 import { environment } from '../environments/environment';
 import { reducer } from './core/store/reducers';
-import {CoreModule} from './core/core.module';
+import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import 'hammerjs';
 import { InventoryService } from './core/services/inventory.service';
-import {CreateInventoryComponent} from './components/inventory/create-inventory/create-inventory.component';
+import { CreateInventoryComponent } from './components/inventory/create-inventory/create-inventory.component';
 import { DeleteInventoryComponent } from './components/inventory/delete-inventory/delete-inventory.component';
 import { AddProductComponent } from './components/inventory/add-product/add-product.component';
 import { StoreModule } from '@ngrx/store';
@@ -30,8 +30,14 @@ import { RouterStoreModule } from '@ngrx/router-store';
 import { UserEffects } from './core/store/effects/user';
 import { UserService } from './core/services/user.service';
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
+import { DeleteUserComponent } from './components/user/delete-user/delete-user.component';
+import { CreateUserComponent } from './components/user/create-user/create-user.component';
+import { AddOrderComponent } from './components/user/add-order/add-order.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const devModules = environment.production ? [] : [
+  StoreDevtoolsModule.instrumentOnlyWithExtension(),
+  MaterialModule,
 ];
 
 @NgModule({
@@ -44,26 +50,27 @@ const devModules = environment.production ? [] : [
     CreateInventoryComponent,
     DeleteInventoryComponent,
     AddProductComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    DeleteUserComponent,
+    CreateUserComponent,
+    AddOrderComponent
   ],
 
   imports: [
-    // CoreModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    FlexLayoutModule,
     // CoreModule,
     RouterModule.forRoot(routes),
     StoreModule.provideStore(reducer), // for now only, transfer to core module later
     EffectsModule.run(InventoryEffects),
     EffectsModule.run(UserEffects),
     RouterStoreModule.connectRouter(),
-    // ...devModules,
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    MaterialModule
+    ...devModules,
     //
   ],
 
@@ -72,7 +79,11 @@ const devModules = environment.production ? [] : [
   entryComponents: [
     CreateInventoryComponent,
     DeleteInventoryComponent,
-    AddProductComponent
+    AddProductComponent,
+    DeleteUserComponent,
+    CreateUserComponent,
+    AddOrderComponent,
+    AddOrderComponent
   ],
 
   bootstrap: [ AppComponent ]

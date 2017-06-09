@@ -16,6 +16,7 @@ namespace SimpleOnlineShop.SimpleOnlineShop.Infrastructure.CrossCutting.AutoMapp
             orderMapper.ForMember(dto => dto.Name, mc => mc.MapFrom(e => e.Product.Name));
             orderMapper.ForMember(dto => dto.Description, mc => mc.MapFrom(e => e.Product.Description));
             orderMapper.ForMember(dto => dto.Price, mc => mc.MapFrom(e => e.Product.Price));
+            orderMapper.ForMember(dto => dto.Brand, mc => mc.MapFrom(e => e.Product.Brand));
 
             var mapper = CreateMap<User, UserData>();
 

@@ -1,17 +1,24 @@
-* {
-  margin: auto;
-}
-
-
 a {
   text-decoration: none;
+  padding: 0;
+  margin: 1rem 1rem 0 0;
+}
+
+.fab-add {
+  margin-top: 1.3rem;
+  margin-left: 1.3rem;
 }
 
 md-card {
   width: 25rem;
-  height: 20rem;
+  height: 10rem;
+}
+
+.div-card {
+  width: 25rem;
+  height: 10rem;
   display: inline-block;
-  margin: 50px 25px 50px 25px;
+  margin: 15px auto 15px auto;
   text-align: left;
 }
 
@@ -27,3 +34,18 @@ md-card {
 md-input-container {
   width: 250px;
 }
+
+.example-header-image {
+  background-image: url('../../../../assets/shiba2.jpg');
+  background-size: cover;
+}
+
+md-card-content {
+  text-align: left;
+}
+
+.user-cards {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+

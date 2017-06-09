@@ -1,29 +1,52 @@
-<button md-fab color="primary" (click)="goBack()" class="row btn-back">
-  <md-icon>arrow_back</md-icon>
-</button>
+<div class="row btn-back">
+  <button md-fab color="primary" (click)="goBack()">
+    <md-icon>arrow_back</md-icon>
+  </button>
+</div>
 
-<div *ngIf="user" class="row">
-  <md-card>
+<md-progress-spinner
+  class="example-margin"
+  color="primary"
+  mode="indeterminate"
+  value="0"
+  *ngIf="(loading$ | async)">
+</md-progress-spinner>
+
+<div *ngIf="user && !(loading$ | async)">
+  <md-card color="primary">
     <md-card-header>
-      <h4>{{user.lastName}}, {{user.firstName}}</h4>
+      <h3>{{user.lastName}}, {{user.firstName}}</h3>
     </md-card-header>
     <md-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-      <table>
-        <thead>
-          <th>orders!</th>
-        </thead>
-        <tbody>
-          <td>here!</td>
-        </tbody>
-      </table>
+      <div class="order-list">
+      <md-toolbar>
+        <span><h4>Orders</h4></span>
+        <span class="md-tb-spacer"></span>
+        <a md-icon-button color="primary" (click)="addOrder()">
+          <md-icon>add_shopping_cart</md-icon>
+        </a>
+      </md-toolbar>
+        <table class="table">
+          <thead>
+          <th>Name</th>
+          <th>Brand</th>
+          <th>Description</th>
+          <th>Order Date</th>
+          <th>Price</th>
+          </thead>
+          <tbody *ngFor="let order of user.orders">
+          <td>{{order.name}}</td>
+          <td>{{order.brand}}</td>
+          <td>{{order.description}}</td>
+          <td>{{order.orderDate}}</td>
+          <td>{{order.price}} Php</td>
+          </tbody>
+        </table>
+      </div>
     </md-card-content>
     <md-card-actions align="end">
       <button md-raised-button (click)="deleteUser()" color="warn">Delete</button>
     </md-card-actions>
   </md-card>
 </div>
+
